@@ -19,7 +19,7 @@ namespace LearningManagementSystem.Controllers
         private ApplicationUserManager _userManager;
 
         public AccountController()
-        {
+        { 
         }
 
 
