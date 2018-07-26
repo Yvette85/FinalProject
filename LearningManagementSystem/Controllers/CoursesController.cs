@@ -70,7 +70,7 @@ namespace LearningManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return View(course); 
         }
 
         // POST: Courses/Edit/5
