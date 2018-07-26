@@ -7,10 +7,10 @@ namespace LearningManagementSystem.Models
 {
     public class Course
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime StartDate { get; set; }
+        public int CourseId { get; set; }
+        public string CourseName { get; set; }
+        public string CourseDescription { get; set; }
+        public DateTime CourseStartDate { get; set; }
         public virtual ICollection<ApplicationUser> Students { get; set; }
 
 
