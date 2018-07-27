@@ -141,7 +141,12 @@ namespace LearningManagementSystem.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            ApplicationDbContext context = new ApplicationDbContext();
+            var viewModel = new RegisterViewModel();
+
+            viewModel.Roles = context.Roles.ToList();
+        
+            return View(viewModel);
         }
 
         //
