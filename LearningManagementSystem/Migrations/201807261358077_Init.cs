@@ -11,12 +11,12 @@ namespace LearningManagementSystem.Migrations
                 "dbo.Courses",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Description = c.String(),
-                        StartDate = c.DateTime(nullable: false),
+                        CourseId = c.Int(nullable: false, identity: true),
+                        CourseName = c.String(),
+                        CourseDescription = c.String(),
+                        CourseStartDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.CourseId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -34,12 +34,12 @@ namespace LearningManagementSystem.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        Course_Id = c.Int(),
+                        Course_CourseId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Courses", t => t.Course_Id)
+                .ForeignKey("dbo.Courses", t => t.Course_CourseId)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.Course_Id);
+                .Index(t => t.Course_CourseId);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -94,7 +94,7 @@ namespace LearningManagementSystem.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.AspNetUsers", "Course_Id", "dbo.Courses");
+            DropForeignKey("dbo.AspNetUsers", "Course_CourseId", "dbo.Courses");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -103,7 +103,7 @@ namespace LearningManagementSystem.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", new[] { "Course_Id" });
+            DropIndex("dbo.AspNetUsers", new[] { "Course_CourseId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
