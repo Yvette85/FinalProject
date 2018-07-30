@@ -81,9 +81,10 @@ namespace LearningManagementSystem.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public IdentityRole Role { get; set; }
-        public int RoleId { get; set; }
-        public IEnumerable<IdentityRole> Roles { get; set; }
+        //public IdentityRole Role { get; set; }
+        //public int RoleId { get; set; }
+        public IEnumerable<Course> Courses { get; set; }
+        public List<IdentityRole> Roles { get; set; }
     }
 
     public class ResetPasswordViewModel
