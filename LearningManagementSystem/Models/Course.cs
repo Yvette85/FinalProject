@@ -13,7 +13,6 @@ namespace LearningManagementSystem.Models
         public DateTime StartDate { get; set; }
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
-
-
+        
     }
 }

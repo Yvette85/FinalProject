@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LearningManagementSystem.Models;
-using LearningManagementSystem.Models.ViewModels;
+
 
 namespace LearningManagementSystem.Controllers
 {
@@ -18,7 +18,25 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules
         public ActionResult Index()
         {
-            return View(db.Modules.ToList());
+            List<IndexModule> module = new List<IndexModule>();
+            foreach (var g in db.Modules.ToList())
+            {
+                module.Add(new IndexModule()
+                {
+
+                    Id = g.Id,
+                    Name = g.Name,
+                    Start = g.Start,
+                    Description = g.Description,
+                    
+
+                });
+            }
+
+            IndexModuleViewModels modulemodel = new IndexModuleViewModels();
+            modulemodel.Modules = module.Where(x => x.Start > DateTime.Now).ToList();
+
+            return View(modulemodel);
         }
 
         // GET: Modules/Details/5
@@ -28,6 +46,7 @@ namespace LearningManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Module module = db.Modules.Find(id);
             if (module == null)
             {
@@ -48,10 +67,13 @@ namespace LearningManagementSystem.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End")] Module module)
-        {
+        {      
+
+           // var Course = module.Courses.Id.ToString();
+            
             if (ModelState.IsValid)
             {
-               
+                                               
                 db.Modules.Add(module);
                 db.SaveChanges();
                 return RedirectToAction("Index");

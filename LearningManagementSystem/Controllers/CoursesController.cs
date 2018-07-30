@@ -17,9 +17,45 @@ namespace LearningManagementSystem.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            List<IndexCourse> course = new List<IndexCourse>();
+            foreach (var g in db.Courses.ToList())
+            {
+                course.Add(new IndexCourse()
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    StartDate = g.StartDate,
+                    Description = g.Description,
+
+                });
+            }
+
+            IndexCourseViewModel coursemodel = new IndexCourseViewModel();
+            coursemodel.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
+
+            return View(coursemodel);
         }
 
+        public ActionResult IndexHistory()
+        {
+            List<IndexCourse> course = new List<IndexCourse>();
+            foreach (var g in db.Courses.ToList())
+            {
+                course.Add(new IndexCourse()
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    StartDate = g.StartDate,
+                    Description = g.Description,
+
+                });
+            }
+
+            IndexCourseViewModel coursemodel = new IndexCourseViewModel();
+            coursemodel.Courses = course.Where(x => x.StartDate < DateTime.Now).ToList();
+
+            return View(coursemodel);
+        }
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {

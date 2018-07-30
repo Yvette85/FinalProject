@@ -72,6 +72,17 @@ namespace LearningManagementSystem.Migrations
 
             //var john = userManager.FindByName("john@lexicon.se");
             //userManager.AddToRoles(john.Id, "Admin", "Editor");
+
+            var courses = new[]
+            {
+                new Course { Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Name ="Java", Description ="Java Course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Name ="C++", Description ="Fundamentals in C++", StartDate = DateTime.Now.AddDays(-600)}
+            };
+
+            context.Courses.AddOrUpdate(c => c.Name, courses);
+            context.SaveChanges();
+
         }
     }
 }
