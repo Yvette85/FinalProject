@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LearningManagementSystem.Models
@@ -79,7 +80,14 @@ namespace LearningManagementSystem.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        
+
+        public ApplicationUser User { get; set; }
+
+        //public string RoleName { get; set; }
+        //public IdentityRole Role { get; set; }
+
+        //public IEnumerable<IdentityRole> Roles { get; set; }
+
     }
 
     public class ResetPasswordViewModel

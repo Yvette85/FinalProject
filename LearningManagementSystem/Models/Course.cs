@@ -11,8 +11,10 @@ namespace LearningManagementSystem.Models
         public string CourseName { get; set; }
         public string CourseDescription { get; set; }
         public DateTime CourseStartDate { get; set; }
+
         public virtual ICollection<ApplicationUser> Students { get; set; }
 
 
     }
 }
+

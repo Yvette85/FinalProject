@@ -67,6 +67,9 @@ namespace LearningManagementSystem.Migrations
             var teacherUser = userManager.FindByName("teacher@lexicon.se");
             userManager.AddToRole(teacherUser.Id, "Teacher");
 
+
+            
+
             var studentUser = userManager.FindByName("student@lexicon.se");
             userManager.AddToRole(studentUser.Id, "Student");
 
