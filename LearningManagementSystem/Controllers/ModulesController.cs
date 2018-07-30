@@ -18,6 +18,9 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules
         public ActionResult Index()
         {
+
+
+            
             List<IndexModule> module = new List<IndexModule>();
             foreach (var g in db.Modules.ToList())
             {
@@ -28,8 +31,9 @@ namespace LearningManagementSystem.Controllers
                     Name = g.Name,
                     Start = g.Start,
                     Description = g.Description,
+                    End = g.End,
                     
-
+                    
                 });
             }
 
@@ -58,7 +62,11 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new IndexModuleViewModels()
+            {
+                ListCourse = db.Courses,
+            };
+            return View(model);
         }
 
         // POST: Modules/Create
@@ -66,20 +74,29 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End")] Module module)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End")] IndexModule createmodule)
         {      
 
            // var Course = module.Courses.Id.ToString();
             
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)     
             {
-                                               
+                var module = new Module()
+                {
+                    Id = createmodule.Id,
+                    Name = createmodule.Name,
+                    Description = createmodule.Description,
+                    Start = createmodule.Start,
+                    End = createmodule.End,       
+                    
+                };
+
                 db.Modules.Add(module);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(module);
+            return View(createmodule);
         }
 
         // GET: Modules/Edit/5

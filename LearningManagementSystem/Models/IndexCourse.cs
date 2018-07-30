@@ -13,5 +13,7 @@ namespace LearningManagementSystem.Models
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime CourseEnd { get; set; }
+
+        public List<IndexModule> Modules { get; set; }
     }
 }

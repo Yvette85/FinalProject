@@ -217,6 +217,38 @@
     <Compile Include="Migrations\201807301222592_module20.Designer.cs">
       <DependentUpon>201807301222592_module20.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807301253284_module21.cs" />
+    <Compile Include="Migrations\201807301253284_module21.Designer.cs">
+      <DependentUpon>201807301253284_module21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301321191_module22.cs" />
+    <Compile Include="Migrations\201807301321191_module22.Designer.cs">
+      <DependentUpon>201807301321191_module22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301322449_module23.cs" />
+    <Compile Include="Migrations\201807301322449_module23.Designer.cs">
+      <DependentUpon>201807301322449_module23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301327227_module24.cs" />
+    <Compile Include="Migrations\201807301327227_module24.Designer.cs">
+      <DependentUpon>201807301327227_module24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301359414_module25.cs" />
+    <Compile Include="Migrations\201807301359414_module25.Designer.cs">
+      <DependentUpon>201807301359414_module25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301401579_module26.cs" />
+    <Compile Include="Migrations\201807301401579_module26.Designer.cs">
+      <DependentUpon>201807301401579_module26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301405427_module27.cs" />
+    <Compile Include="Migrations\201807301405427_module27.Designer.cs">
+      <DependentUpon>201807301405427_module27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301435074_module28.cs" />
+    <Compile Include="Migrations\201807301435074_module28.Designer.cs">
+      <DependentUpon>201807301435074_module28.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -332,6 +364,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807301222592_module20.resx">
       <DependentUpon>201807301222592_module20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301253284_module21.resx">
+      <DependentUpon>201807301253284_module21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301321191_module22.resx">
+      <DependentUpon>201807301321191_module22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301322449_module23.resx">
+      <DependentUpon>201807301322449_module23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301327227_module24.resx">
+      <DependentUpon>201807301327227_module24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301359414_module25.resx">
+      <DependentUpon>201807301359414_module25.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301401579_module26.resx">
+      <DependentUpon>201807301401579_module26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301405427_module27.resx">
+      <DependentUpon>201807301405427_module27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301435074_module28.resx">
+      <DependentUpon>201807301435074_module28.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

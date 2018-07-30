@@ -8,6 +8,7 @@ namespace LearningManagementSystem.Models
     public class IndexModuleViewModels
     {
         public List<IndexModule> Modules { get; set; }
-        public ICollection<Course> ListCourse { get; set; }
+        public IEnumerable<Course> ListCourse { get; set; }
+        
     }
 }

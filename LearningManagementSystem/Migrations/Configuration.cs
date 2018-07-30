@@ -83,6 +83,15 @@ namespace LearningManagementSystem.Migrations
             context.Courses.AddOrUpdate(c => c.Name, courses);
             context.SaveChanges();
 
+            var modules = new[]
+            {
+                new Module {Name ="EntityFramwork", Description = "Working with Entity", Start = DateTime.Now.AddDays(10), CourseId=1, End = DateTime.Now.AddDays(110)},
+                new Module {Name ="Identity", Description = "Working with Identity", Start = DateTime.Now.AddDays(10), CourseId=1, End = DateTime.Now.AddDays(110)},
+                
+            };
+            context.Modules.AddOrUpdate(m => m.Name, modules);
+            context.SaveChanges();
+
         }
     }
 }
