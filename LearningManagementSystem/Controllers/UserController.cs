@@ -12,20 +12,34 @@ namespace LearningManagementSystem.Controllers
 {
     public class UserController : Controller
     {
+        private ApplicationDbContext context = new ApplicationDbContext();
+
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
-    
-            public ActionResult Index()
-        {
 
-            
-            return View();
-        }
+        //public ActionResult Index(ApplicationUser u)
+        //{
+
+        //    var viewModel = new RegisterViewModel();
+
+        //    viewModel.Roles = context.Roles.ToList();
+        //    viewModel.Courses = context.Courses.ToList();
+
+         
+
+        //    List<RegisterViewModel> rv = new List<RegisterViewModel>();
+
+        //    foreach (var e in context.Users.ToList())
+        //    {
+               
+        //        rv.Add(new RegisterViewModel());
+        //    }
+
+        //    return View(context.Users.ToList());
+
+        //}
 
 
-        //var park = db.Members.ToList();
-        ////var parkedVehicle = db.vehicles.ToList();
-        //return View(db.Members.ToList());
 
         // GET: User
 
@@ -47,13 +61,20 @@ namespace LearningManagementSystem.Controllers
         public ActionResult Register( RegisterViewModel model)
         {
             var userStore = new UserStore<IdentityUser>();
-UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+
+            var user = new ApplicationUser();
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
 
             var identityResult=  userManager.Create ( new IdentityUser( model.Email),  model.Password);
 
             if (identityResult.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                // var Roles = context.Roles.ToList();
+
+                //context.Users.Add(user);
+                //context.SaveChanges();
+
+                return RedirectToAction("Index" ,"Home");
             }
 
             ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
@@ -65,4 +86,12 @@ UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore)
 }
 
 
-//[Bind(Include = "RegNum,Color,Brand,Model,NumberOfWheels,ParkedTime, MemberId,VehicleTypesId")] Park park
+//var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+//if (ModelState.IsValid)
+//           {
+//               db.Courses.Add(course);
+//               db.SaveChanges();
+//               return RedirectToAction("Index");
+//           }
+
+//           return View(course);

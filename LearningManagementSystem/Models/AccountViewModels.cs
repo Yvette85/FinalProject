@@ -65,7 +65,7 @@ namespace LearningManagementSystem.Models
 
     public class RegisterViewModel
     {
-
+     
 
         public string FirstName { get; set; }
 
@@ -96,6 +96,7 @@ namespace LearningManagementSystem.Models
 
         public IEnumerable<Course> Courses { get; set; }
         public List<IdentityRole> Roles { get; set; }
+        public List<IdentityUser> users { get; set; }
     }
 
     public class ResetPasswordViewModel
