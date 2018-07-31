@@ -47,7 +47,7 @@ namespace LearningManagementSystem.Controllers
         public ActionResult Register( RegisterViewModel model)
         {
             var userStore = new UserStore<IdentityUser>();
-UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
 
             var identityResult=  userManager.Create ( new IdentityUser( model.Email),  model.Password);
 
