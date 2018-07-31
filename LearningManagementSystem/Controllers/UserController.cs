@@ -12,8 +12,20 @@ namespace LearningManagementSystem.Controllers
 {
     public class UserController : Controller
     {
-        public UserManager<IdentityUser> UserManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
+        public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
+    
+            public ActionResult Index()
+        {
+
+            
+            return View();
+        }
+
+
+        //var park = db.Members.ToList();
+        ////var parkedVehicle = db.vehicles.ToList();
+        //return View(db.Members.ToList());
 
         // GET: User
 
@@ -24,8 +36,9 @@ namespace LearningManagementSystem.Controllers
             ApplicationDbContext context = new ApplicationDbContext();
 
             var viewModel = new RegisterViewModel();
-
+             
             viewModel.Roles = context.Roles.ToList();
+            viewModel.Courses = context.Courses.ToList();
 
             return View(viewModel);
         }
@@ -33,15 +46,23 @@ namespace LearningManagementSystem.Controllers
         [HttpPost]
         public ActionResult Register( RegisterViewModel model)
         {
-           var identityResult= UserManager.Create(new IdentityUser(model.Email), model.Password);
+            var userStore = new UserStore<IdentityUser>();
+UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+
+            var identityResult=  userManager.Create ( new IdentityUser( model.Email),  model.Password);
+
             if (identityResult.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
             }
 
             ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
+
             return View(model);
         }
 
     }
 }
+
+
+//[Bind(Include = "RegNum,Color,Brand,Model,NumberOfWheels,ParkedTime, MemberId,VehicleTypesId")] Park park
