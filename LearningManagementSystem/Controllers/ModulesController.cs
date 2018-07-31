@@ -18,24 +18,25 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules
         public ActionResult Index()
         {
-
-
+            //var modules = db.Modules.Include(m => m.Course);
             
+
             List<IndexModule> module = new List<IndexModule>();
             foreach (var g in db.Modules.ToList())
             {
                 module.Add(new IndexModule()
                 {
-                    Id = g.Id,
+                    ModuleId = g.ModuleId,
                     Name = g.Name,
-                    Start = g.Start,
                     Description = g.Description,
-                    End = g.End,                    
+                    Start = g.Start,
+                    EndDate = g.EndDate, 
+                    CourseId = g.CourseId,                    
                     
                 });
             }
 
-            IndexModuleViewModels modulemodel = new IndexModuleViewModels();
+            IndexModule modulemodel = new IndexModule();
             modulemodel.Modules = module.Where(x => x.Start > DateTime.Now).ToList();
 
             return View(modulemodel);
@@ -72,23 +73,23 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End,CourseId")] Module createmodule)
+        public ActionResult Create([Bind(Include = "ModuleId,Name,Description,Start,EndDate,CourseId")] Module createmodule)
         {      
 
            // var Course = module.Courses.Id.ToString();
             
             if (ModelState.IsValid)     
             {
-                var module = new IndexModule()
-                {
-                    Id = createmodule.Id,
-                    Name = createmodule.Name,
-                    Description = createmodule.Description,
-                    Start = createmodule.Start,
-                    End = createmodule.End,
-                    CourseId = createmodule.CourseId,
+                //var module = new Module()
+                //{
+                //    ModuleId = createmodule.ModuleId,
+                //    Name = createmodule.Name,
+                //    Description = createmodule.Description,
+                //    Start = createmodule.Start,
+                //    EndDate = createmodule.EndDate,
+                //    CourseId = createmodule.CourseId,
 
-                };
+                //};
 
                 db.Modules.Add(createmodule);
                 db.SaveChanges();

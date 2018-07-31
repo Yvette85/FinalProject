@@ -9,7 +9,7 @@ namespace LearningManagementSystem.Models
 {
     public class IndexModule
     {
-        public int Id { get; set; }
+        public int ModuleId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         
@@ -17,10 +17,13 @@ namespace LearningManagementSystem.Models
         public DateTime Start { get; set; }
        
         [Column(TypeName = "datetime2")]
-        public DateTime End { get; set; }
-        public int CourseId { get; set; }
+        public DateTime EndDate { get; set; }
 
+
+        public int CourseId { get; set; }        
+        
+        public List<IndexModule> Modules { get; set; }
         public List<IndexCourse> Courses { get; set; }
-       
+
     }
 }

@@ -9,7 +9,8 @@ namespace LearningManagementSystem.Models
 {
     public class Module
     {
-        public int Id { get; set; }
+        public int ModuleId { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
         
@@ -17,11 +18,13 @@ namespace LearningManagementSystem.Models
         public DateTime Start { get; set; }
        
          [Column(TypeName = "datetime2")]
-        public DateTime End { get; set; }
+        public DateTime EndDate { get; set; }
 
-        //public Course Courses { get; set; }
+        public virtual Course Course { get; set; }
 
         public int CourseId { get; set; }
+
+        
 
                
 
