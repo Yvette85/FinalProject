@@ -19,11 +19,11 @@ namespace LearningManagementSystem.Models
         [Column(TypeName = "datetime2")]
         public DateTime EndDate { get; set; }
 
-
-        public int CourseId { get; set; }        
+        [Required]
+        public string CourseId { get; set; }        
         
         public List<IndexModule> Modules { get; set; }
-        public List<IndexCourse> Courses { get; set; }
+        public IEnumerable<Course> ListCourse { get; set; }
 
     }
 }

@@ -31,7 +31,7 @@ namespace LearningManagementSystem.Controllers
                     Description = g.Description,
                     Start = g.Start,
                     EndDate = g.EndDate, 
-                    CourseId = g.CourseId,                    
+                    CourseId = g.CourseId               
                     
                 });
             }
@@ -61,7 +61,7 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules/Create
         public ActionResult Create()
         {
-            var model = new IndexModuleViewModels()
+            var model = new Module()
             {
                 ListCourse = db.Courses,
             };
@@ -88,7 +88,6 @@ namespace LearningManagementSystem.Controllers
                 //    Start = createmodule.Start,
                 //    EndDate = createmodule.EndDate,
                 //    CourseId = createmodule.CourseId,
-
                 //};
 
                 db.Modules.Add(createmodule);
@@ -96,9 +95,10 @@ namespace LearningManagementSystem.Controllers
                 return RedirectToAction("Index");
 
             }
+            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", createmodule.CourseId);
+            //return View(createmodule);
 
-
-            return View(createmodule);
+           return View(createmodule);
         }
 
         // GET: Modules/Edit/5

@@ -33,14 +33,14 @@ namespace LearningManagementSystem.Migrations
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new ApplicationUserManager(userStore);
 
-            var emails = new[] { "teacher@lexicon.se", "student@lexicon.se" };
+            var emails = new[] { "Teacher@lexicon.se", "Student@lexicon.se" };
 
             foreach (var email in emails)
             {
                 if (context.Users.Any(u => u.UserName == email)) continue;
 
                 var user = new ApplicationUser { UserName = email, Email = email };
-                var result = userManager.Create(user, "lexico");
+                var result = userManager.Create(user, "lexicon");
                 if (!result.Succeeded)
                 {
                     throw new Exception(string.Join("\n", result.Errors));
@@ -64,10 +64,10 @@ namespace LearningManagementSystem.Migrations
                 }
             }
 
-            var teacherUser = userManager.FindByName("teacher@lexicon.se");
+            var teacherUser = userManager.FindByName("Teacher@lexicon.se");
             userManager.AddToRole(teacherUser.Id, "Teacher");
 
-            var studentUser = userManager.FindByName("student@lexicon.se");
+            var studentUser = userManager.FindByName("Student@lexicon.se");
             userManager.AddToRole(studentUser.Id, "Student");
 
             //var john = userManager.FindByName("john@lexicon.se");
@@ -85,8 +85,8 @@ namespace LearningManagementSystem.Migrations
 
             var modules = new[]
             {
-                new Module {Name ="EntityFramwork", Description = "Working with Entity", Start = DateTime.Now.AddDays(10), CourseId=1, EndDate = DateTime.Now.AddDays(110)},
-                new Module {Name ="Identity", Description = "Working with Identity", Start = DateTime.Now.AddDays(10), CourseId=1, EndDate = DateTime.Now.AddDays(110)},
+                new Module {Name ="EntityFramwork", Description = "Working with Entity", Start = DateTime.Now.AddDays(10), CourseId="1", EndDate = DateTime.Now.AddDays(110)},
+                new Module {Name ="Identity", Description = "Working with Identity", Start = DateTime.Now.AddDays(10), CourseId="1", EndDate = DateTime.Now.AddDays(110)},
                 
             };
             context.Modules.AddOrUpdate(m => m.Name, modules);

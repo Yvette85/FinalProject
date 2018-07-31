@@ -17,12 +17,12 @@ namespace LearningManagementSystem.Models
          [Column(TypeName = "datetime2")]
         public DateTime Start { get; set; }
        
-         [Column(TypeName = "datetime2")]
+        [Column(TypeName = "datetime2")]
         public DateTime EndDate { get; set; }
+        [Required]
+        public string CourseId { get; set; }
+        public IEnumerable<Course> ListCourse { get; set; }
 
-        public virtual Course Course { get; set; }
-
-        public int CourseId { get; set; }
 
         
 
