@@ -37,6 +37,8 @@ namespace LearningManagementSystem.Controllers
             }
             return View(course);
         }
+        [Authorize]
+
 
         // GET: Courses/Create
         public ActionResult Create()
