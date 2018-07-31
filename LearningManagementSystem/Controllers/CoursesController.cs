@@ -10,6 +10,7 @@ using LearningManagementSystem.Models;
 
 namespace LearningManagementSystem.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -70,6 +71,8 @@ namespace LearningManagementSystem.Controllers
             }
             return View(course);
         }
+        [Authorize]
+
 
         // GET: Courses/Create
         public ActionResult Create()
@@ -82,7 +85,7 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,StartDate")] Course course)
+        public ActionResult Create([Bind(Include = "CourseId,CourseName,CourseDescription,CourseStartDate")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +109,7 @@ namespace LearningManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return View(course); 
         }
 
         // POST: Courses/Edit/5
@@ -114,7 +117,7 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,StartDate")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseId,CourseName,CourseDescription,CourseStartDate")] Course course)
         {
             if (ModelState.IsValid)
             {

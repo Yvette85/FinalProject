@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LearningManagementSystem.Models
@@ -64,6 +65,16 @@ namespace LearningManagementSystem.Models
 
     public class RegisterViewModel
     {
+
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,7 +90,12 @@ namespace LearningManagementSystem.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        
+
+        public IdentityRole Role { get; set; }
+        public int RoleId { get; set; }
+
+        public IEnumerable<Course> Courses { get; set; }
+        public List<IdentityRole> Roles { get; set; }
     }
 
     public class ResetPasswordViewModel

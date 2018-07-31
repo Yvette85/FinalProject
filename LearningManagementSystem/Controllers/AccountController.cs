@@ -19,8 +19,8 @@ namespace LearningManagementSystem.Controllers
         private ApplicationUserManager _userManager;
 
         public AccountController()
-        { 
-        }
+        {
+        }   
 
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -29,6 +29,7 @@ namespace LearningManagementSystem.Controllers
             SignInManager = signInManager;
         }
 
+    
         public ApplicationSignInManager SignInManager
         {
             get
@@ -140,7 +141,12 @@ namespace LearningManagementSystem.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            ApplicationDbContext context = new ApplicationDbContext();
+            var viewModel = new RegisterViewModel();
+
+            viewModel.Courses = context.Courses.ToList();
+
+            return View(viewModel);
         }
 
         //
@@ -156,11 +162,12 @@ namespace LearningManagementSystem.Controllers
                 
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                
+              
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -168,6 +175,9 @@ namespace LearningManagementSystem.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
+
+
+                    
                 }
                 AddErrors(result);
             }
