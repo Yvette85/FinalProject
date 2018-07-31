@@ -15,7 +15,7 @@ namespace LearningManagementSystem.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        //private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -142,8 +142,14 @@ namespace LearningManagementSystem.Controllers
         public ActionResult Register()
         {
             //ViewBag.Rolename = new SelectList(db.Roles, "Id", "Name");
+            ApplicationDbContext context = new ApplicationDbContext();
+            var viewModel = new RegisterViewModel();
 
-            return View();
+            viewModel.Courses = context.Courses.ToList();
+
+            return View(viewModel);
+
+                        
         }
 
         //

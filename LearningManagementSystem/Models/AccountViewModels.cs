@@ -83,10 +83,13 @@ namespace LearningManagementSystem.Models
 
         //public ApplicationUser User { get; set; }
 
-       //public int CourseId { get; set; }
-       // public Course Course { get; set; }
+        //public int CourseId { get; set; }
+        // public Course Course { get; set; }
 
-        
+        public IEnumerable<Course> Courses { get; set; }
+        public List<IdentityRole> Roles { get; set; }
+
+
 
     }
 

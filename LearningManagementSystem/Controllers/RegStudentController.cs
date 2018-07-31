@@ -1,42 +1,47 @@
 ﻿using LearningManagementSystem.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace LearningManagementSystem.Controllers
 {
-    [Authorize]
-    public class RegStudentController : Controller
+    public class UserController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: RegStudent
-        public ActionResult Index()
+        public UserManager<Microsoft.AspNet.Identity.EntityFramework.IdentityUser> UserManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
+
+
+        // GET: User
+
+        public ActionResult Register()
         {
-            return View();
+
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var viewModel = new RegisterViewModel();
+
+            viewModel.Roles = context.Roles.ToList();
+
+            return View(viewModel);
         }
-        public ActionResult Create()
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
         {
-            return View();
+            var identityResult = UserManager.Create(new Microsoft.AspNet.Identity.EntityFramework.IdentityUser(model.Email), model.Password);
+            if (identityResult.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
+            return View(model);
         }
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "CourseId")] Course course)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Courses.Add(course);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(course);
-        //}
-
-
 
     }
 }

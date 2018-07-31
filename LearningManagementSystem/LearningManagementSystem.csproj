@@ -199,9 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807310806348_new.cs" />
-    <Compile Include="Migrations\201807310806348_new.Designer.cs">
-      <DependentUpon>201807310806348_new.cs</DependentUpon>
+    <Compile Include="Migrations\201807311007152_test4.cs" />
+    <Compile Include="Migrations\201807311007152_test4.Designer.cs">
+      <DependentUpon>201807311007152_test4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -276,8 +276,7 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
-    <Content Include="Views\RegStudent\Index.cshtml" />
-    <Content Include="Views\RegStudent\Create.cshtml" />
+    <Content Include="Views\RegStudent\Register.cshtml" />
     <Content Include="Views\Modules\Create.cshtml" />
     <Content Include="Views\Modules\Delete.cshtml" />
     <Content Include="Views\Modules\Details.cshtml" />
@@ -307,8 +306,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807310806348_new.resx">
-      <DependentUpon>201807310806348_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807311007152_test4.resx">
+      <DependentUpon>201807311007152_test4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
