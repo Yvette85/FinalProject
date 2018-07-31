@@ -10,6 +10,7 @@ using LearningManagementSystem.Models;
 
 namespace LearningManagementSystem.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -34,6 +35,8 @@ namespace LearningManagementSystem.Controllers
             }
             return View(course);
         }
+        [Authorize]
+
 
         // GET: Courses/Create
         public ActionResult Create()
