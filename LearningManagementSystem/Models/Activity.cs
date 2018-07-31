@@ -12,8 +12,8 @@ namespace LearningManagementSystem.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Type { get; set; }
-        public DateTime Start_Time { get; set; }
-        public DateTime End_Time { get; set; }
+        public string Start_Time { get; set; }
+        public string End_Time { get; set; }
 
 
        

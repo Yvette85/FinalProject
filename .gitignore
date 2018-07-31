@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/LearningManagementSystem/Migrations/201807310806348_new.cs
+/LearningManagementSystem/Migrations/201807310806348_new.Designer.cs
+/LearningManagementSystem/Migrations/201807310806348_new.resx

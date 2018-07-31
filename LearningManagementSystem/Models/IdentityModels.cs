@@ -11,7 +11,8 @@ namespace LearningManagementSystem.Models
     public class ApplicationUser : IdentityUser
     {
 
-
+        //public int CourseId{ get; set; }
+        //public Course Course { get; set; }
         //[Required]
         //public string RoleName { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

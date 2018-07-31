@@ -199,17 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301340591_ModuleActivity.cs" />
-    <Compile Include="Migrations\201807301340591_ModuleActivity.Designer.cs">
-      <DependentUpon>201807301340591_ModuleActivity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301407151_Databaseconnect.cs" />
-    <Compile Include="Migrations\201807301407151_Databaseconnect.Designer.cs">
-      <DependentUpon>201807301407151_Databaseconnect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301422007_changepropertytype.cs" />
-    <Compile Include="Migrations\201807301422007_changepropertytype.Designer.cs">
-      <DependentUpon>201807301422007_changepropertytype.cs</DependentUpon>
+    <Compile Include="Migrations\201807310806348_new.cs" />
+    <Compile Include="Migrations\201807310806348_new.Designer.cs">
+      <DependentUpon>201807310806348_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -315,14 +307,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807301340591_ModuleActivity.resx">
-      <DependentUpon>201807301340591_ModuleActivity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301407151_Databaseconnect.resx">
-      <DependentUpon>201807301407151_Databaseconnect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301422007_changepropertytype.resx">
-      <DependentUpon>201807301422007_changepropertytype.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807310806348_new.resx">
+      <DependentUpon>201807310806348_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
