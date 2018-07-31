@@ -75,9 +75,9 @@ namespace LearningManagementSystem.Migrations
 
             var courses = new[]
             {
-                new Course { Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
-                new Course { Name ="Java", Description ="Java Course", StartDate = DateTime.Now.AddDays(10)},
-                new Course { Name ="C++", Description ="Fundamentals in C++", StartDate = DateTime.Now.AddDays(-600)}
+                new Course { Id=1, Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Id=2, Name ="Java", Description ="Java Course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Id=3, Name ="C++", Description ="Fundamentals in C++", StartDate = DateTime.Now.AddDays(-600)}
             };
 
             context.Courses.AddOrUpdate(c => c.Name, courses);

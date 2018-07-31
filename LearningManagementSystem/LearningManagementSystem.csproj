@@ -197,57 +197,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301106237_module16.cs" />
-    <Compile Include="Migrations\201807301106237_module16.Designer.cs">
-      <DependentUpon>201807301106237_module16.cs</DependentUpon>
+    <Compile Include="Migrations\201807310954330_newtry.cs" />
+    <Compile Include="Migrations\201807310954330_newtry.Designer.cs">
+      <DependentUpon>201807310954330_newtry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301108068_module17.cs" />
-    <Compile Include="Migrations\201807301108068_module17.Designer.cs">
-      <DependentUpon>201807301108068_module17.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301110140_module18.cs" />
-    <Compile Include="Migrations\201807301110140_module18.Designer.cs">
-      <DependentUpon>201807301110140_module18.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301136130_module19.cs" />
-    <Compile Include="Migrations\201807301136130_module19.Designer.cs">
-      <DependentUpon>201807301136130_module19.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301222592_module20.cs" />
-    <Compile Include="Migrations\201807301222592_module20.Designer.cs">
-      <DependentUpon>201807301222592_module20.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301253284_module21.cs" />
-    <Compile Include="Migrations\201807301253284_module21.Designer.cs">
-      <DependentUpon>201807301253284_module21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301321191_module22.cs" />
-    <Compile Include="Migrations\201807301321191_module22.Designer.cs">
-      <DependentUpon>201807301321191_module22.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301322449_module23.cs" />
-    <Compile Include="Migrations\201807301322449_module23.Designer.cs">
-      <DependentUpon>201807301322449_module23.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301327227_module24.cs" />
-    <Compile Include="Migrations\201807301327227_module24.Designer.cs">
-      <DependentUpon>201807301327227_module24.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301359414_module25.cs" />
-    <Compile Include="Migrations\201807301359414_module25.Designer.cs">
-      <DependentUpon>201807301359414_module25.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301401579_module26.cs" />
-    <Compile Include="Migrations\201807301401579_module26.Designer.cs">
-      <DependentUpon>201807301401579_module26.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301405427_module27.cs" />
-    <Compile Include="Migrations\201807301405427_module27.Designer.cs">
-      <DependentUpon>201807301405427_module27.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301435074_module28.cs" />
-    <Compile Include="Migrations\201807301435074_module28.Designer.cs">
-      <DependentUpon>201807301435074_module28.cs</DependentUpon>
+    <Compile Include="Migrations\201807311106511_newtry2.cs" />
+    <Compile Include="Migrations\201807311106511_newtry2.Designer.cs">
+      <DependentUpon>201807311106511_newtry2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -350,44 +306,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807301106237_module16.resx">
-      <DependentUpon>201807301106237_module16.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807310954330_newtry.resx">
+      <DependentUpon>201807310954330_newtry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301108068_module17.resx">
-      <DependentUpon>201807301108068_module17.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301110140_module18.resx">
-      <DependentUpon>201807301110140_module18.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301136130_module19.resx">
-      <DependentUpon>201807301136130_module19.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301222592_module20.resx">
-      <DependentUpon>201807301222592_module20.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301253284_module21.resx">
-      <DependentUpon>201807301253284_module21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301321191_module22.resx">
-      <DependentUpon>201807301321191_module22.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301322449_module23.resx">
-      <DependentUpon>201807301322449_module23.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301327227_module24.resx">
-      <DependentUpon>201807301327227_module24.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301359414_module25.resx">
-      <DependentUpon>201807301359414_module25.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301401579_module26.resx">
-      <DependentUpon>201807301401579_module26.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301405427_module27.resx">
-      <DependentUpon>201807301405427_module27.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301435074_module28.resx">
-      <DependentUpon>201807301435074_module28.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807311106511_newtry2.resx">
+      <DependentUpon>201807311106511_newtry2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

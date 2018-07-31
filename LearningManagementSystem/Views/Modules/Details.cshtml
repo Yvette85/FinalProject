@@ -1,4 +1,4 @@
-﻿@model LearningManagementSystem.Models.Module
+﻿@model LearningManagementSystem.Models.IndexModule
 
 @{
     ViewBag.Title = "Details";
@@ -34,20 +34,20 @@
             @Html.DisplayFor(model => model.Start)
         </dd>
 
-        @*<dt>
+        <dt>
             @Html.DisplayNameFor(model => model.End)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.End)
-        </dd>*@
+        </dd>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Course.Name)
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses[0].Name)
             </dt>
         <dd>
-            @Html.DisplayFor(model=> model.Course.Name)
-        </dd>*@
+            @Html.DisplayFor(model=> model.Courses[0].Name)
+        </dd>
 
     </dl>
 </div>

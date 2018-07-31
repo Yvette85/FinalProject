@@ -47,17 +47,18 @@
                <td>
                    @Html.DisplayFor(modelItem => item.Modules[0].Name)
                </td>
-                <td>
-                    <button>
-                        @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = item.Id })
-                    </button> |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+               <td>
+                   <button>
+                       @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = item.Id })
+                   </button> |
+                   @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                   @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                   @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
 
-                    <button>Add Student</button>
+                   <button>Add Student</button>
+                   <button>See Students</button>
 
-                </td>
+               </td>
             </tr>
         }
 

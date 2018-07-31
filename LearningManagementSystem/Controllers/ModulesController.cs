@@ -26,13 +26,11 @@ namespace LearningManagementSystem.Controllers
             {
                 module.Add(new IndexModule()
                 {
-
                     Id = g.Id,
                     Name = g.Name,
                     Start = g.Start,
                     Description = g.Description,
-                    End = g.End,
-                    
+                    End = g.End,                    
                     
                 });
             }
@@ -74,27 +72,30 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End")] IndexModule createmodule)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Start,End,CourseId")] Module createmodule)
         {      
 
            // var Course = module.Courses.Id.ToString();
             
             if (ModelState.IsValid)     
             {
-                var module = new Module()
+                var module = new IndexModule()
                 {
                     Id = createmodule.Id,
                     Name = createmodule.Name,
                     Description = createmodule.Description,
                     Start = createmodule.Start,
-                    End = createmodule.End,       
-                    
+                    End = createmodule.End,
+                    CourseId = createmodule.CourseId,
+
                 };
 
-                db.Modules.Add(module);
+                db.Modules.Add(createmodule);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
+
 
             return View(createmodule);
         }

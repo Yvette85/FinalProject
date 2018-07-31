@@ -27,8 +27,6 @@ namespace LearningManagementSystem.Controllers
                     StartDate = g.StartDate,
                     Description = g.Description,
                     
-                    
-
                 });
             }
 
@@ -50,7 +48,6 @@ namespace LearningManagementSystem.Controllers
                     StartDate = g.StartDate,
                     Description = g.Description,
                     
-
                 });
             }
 
