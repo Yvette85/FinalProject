@@ -31,7 +31,7 @@ namespace LearningManagementSystem.Controllers
                     Description = g.Description,
                     Start = g.Start,
                     EndDate = g.EndDate, 
-                    CourseId = g.CourseId               
+                    CourseId = Convert.ToInt32(g.CourseId)               
                     
                 });
             }
@@ -73,24 +73,26 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ModuleId,Name,Description,Start,EndDate,CourseId")] Module createmodule)
+        public ActionResult Create([Bind(Include = "ModuleId,Name,Description,Start,EndDate,CourseId")] IndexModule createmodule)
         {      
 
            // var Course = module.Courses.Id.ToString();
             
             if (ModelState.IsValid)     
             {
-                //var module = new Module()
-                //{
-                //    ModuleId = createmodule.ModuleId,
-                //    Name = createmodule.Name,
-                //    Description = createmodule.Description,
-                //    Start = createmodule.Start,
-                //    EndDate = createmodule.EndDate,
-                //    CourseId = createmodule.CourseId,
-                //};
+                var module = new Module()
+                {
+                    ModuleId = createmodule.ModuleId,
+                    Name = createmodule.Name,
+                    Description = createmodule.Description,
+                    Start = createmodule.Start,
+                    EndDate = createmodule.EndDate,
+                    CourseId = Convert.ToString(createmodule.CourseId),
+                };
 
-                db.Modules.Add(createmodule);
+
+
+                db.Modules.Add(module);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

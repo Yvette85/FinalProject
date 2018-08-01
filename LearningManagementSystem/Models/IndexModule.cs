@@ -20,7 +20,7 @@ namespace LearningManagementSystem.Models
         public DateTime EndDate { get; set; }
 
         [Required]
-        public string CourseId { get; set; }        
+        public int CourseId { get; set; }        
         
         public List<IndexModule> Modules { get; set; }
         public IEnumerable<Course> ListCourse { get; set; }

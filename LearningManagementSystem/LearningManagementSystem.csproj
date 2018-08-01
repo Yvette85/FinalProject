@@ -198,25 +198,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807312023536_ininthome.cs" />
-    <Compile Include="Migrations\201807312023536_ininthome.Designer.cs">
-      <DependentUpon>201807312023536_ininthome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312030315_ininthome2.cs" />
-    <Compile Include="Migrations\201807312030315_ininthome2.Designer.cs">
-      <DependentUpon>201807312030315_ininthome2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312053499_ininthome3.cs" />
-    <Compile Include="Migrations\201807312053499_ininthome3.Designer.cs">
-      <DependentUpon>201807312053499_ininthome3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312125085_ininthome4.cs" />
-    <Compile Include="Migrations\201807312125085_ininthome4.Designer.cs">
-      <DependentUpon>201807312125085_ininthome4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312135148_ininthome5.cs" />
-    <Compile Include="Migrations\201807312135148_ininthome5.Designer.cs">
-      <DependentUpon>201807312135148_ininthome5.cs</DependentUpon>
+    <Compile Include="Migrations\201808010639354_schoolsprint1.cs" />
+    <Compile Include="Migrations\201808010639354_schoolsprint1.Designer.cs">
+      <DependentUpon>201808010639354_schoolsprint1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -319,20 +303,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807312023536_ininthome.resx">
-      <DependentUpon>201807312023536_ininthome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312030315_ininthome2.resx">
-      <DependentUpon>201807312030315_ininthome2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312053499_ininthome3.resx">
-      <DependentUpon>201807312053499_ininthome3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312125085_ininthome4.resx">
-      <DependentUpon>201807312125085_ininthome4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312135148_ininthome5.resx">
-      <DependentUpon>201807312135148_ininthome5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808010639354_schoolsprint1.resx">
+      <DependentUpon>201808010639354_schoolsprint1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
