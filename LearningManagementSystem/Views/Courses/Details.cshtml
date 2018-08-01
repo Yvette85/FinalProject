@@ -33,10 +33,19 @@
         <dd>
             @Html.DisplayFor(model => model.CourseStartDate)
         </dd>
+        
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Modules)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Modules)
+        </dd>*@
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = Model.Id })
+ 
 </p>

@@ -39,7 +39,7 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules/Create
         public ActionResult Create()
         {
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace LearningManagementSystem.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", module.CourseId);
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", module.CourseId);
             return View(module);
         }
 

@@ -33,14 +33,14 @@ namespace LearningManagementSystem.Migrations
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new ApplicationUserManager(userStore);
 
-            var emails = new[] { "teacher@lexicon.se", "student@lexicon.se" };
+            var emails = new[] { "Teacher@lexicon.se", "Student@lexicon.se" };
 
             foreach (var email in emails)
             {
                 if (context.Users.Any(u => u.UserName == email)) continue;
 
                 var user = new ApplicationUser { UserName = email, Email = email };
-                var result = userManager.Create(user, "lexico");
+                var result = userManager.Create(user, "lexicon");
                 if (!result.Succeeded)
                 {
                     throw new Exception(string.Join("\n", result.Errors));
@@ -64,17 +64,34 @@ namespace LearningManagementSystem.Migrations
                 }
             }
 
-            var teacherUser = userManager.FindByName("teacher@lexicon.se");
+            var teacherUser = userManager.FindByName("Teacher@lexicon.se");
             userManager.AddToRole(teacherUser.Id, "Teacher");
 
-
-            
-
-            var studentUser = userManager.FindByName("student@lexicon.se");
+            var studentUser = userManager.FindByName("Student@lexicon.se");
             userManager.AddToRole(studentUser.Id, "Student");
 
             //var john = userManager.FindByName("john@lexicon.se");
             //userManager.AddToRoles(john.Id, "Admin", "Editor");
+
+            var courses = new[]
+            {
+                new Course { Id=1, Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Id=2, Name ="Java", Description ="Java Course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Id=3, Name ="C++", Description ="Fundamentals in C++", StartDate = DateTime.Now.AddDays(-600)}
+            };
+
+            context.Courses.AddOrUpdate(c => c.Name, courses);
+            context.SaveChanges();
+
+            var modules = new[]
+            {
+                new Module {Name ="EntityFramwork", Description = "Working with Entity", Start_Date = DateTime.Now.AddDays(10), CourseId=1, End_Date = DateTime.Now.AddDays(110)},
+                new Module {Name ="Identity", Description = "Working with Identity", Start_Date = DateTime.Now.AddDays(10), CourseId=1, End_Date = DateTime.Now.AddDays(110)},
+                
+            };
+            context.Modules.AddOrUpdate(m => m.Name, modules);
+            context.SaveChanges();
+
         }
     }
 }

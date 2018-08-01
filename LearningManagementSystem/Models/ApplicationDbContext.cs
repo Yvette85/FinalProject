@@ -10,10 +10,10 @@ namespace LearningManagementSystem.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Module> Modules { get; set; }
 
-        public DbSet<Course>Courses { get; set; }
-        //public DbSet<Module> Modules { get; set; }
-        //public DbSet<Activity> Activities { get; set; }
 
         public ApplicationDbContext()
             : base("LMSayjob", throwIfV1Schema: false)
@@ -24,5 +24,6 @@ namespace LearningManagementSystem.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

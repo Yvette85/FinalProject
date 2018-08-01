@@ -16,8 +16,8 @@ namespace LearningManagementSystem.Models
         public string End_Time { get; set; }
 
 
-       
-        public Module Module { get; set; }
+
+        public virtual Module Module { get; set; }
         public int ModuleId { get; set; }
 
 
