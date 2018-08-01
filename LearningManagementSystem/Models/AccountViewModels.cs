@@ -71,9 +71,9 @@ namespace LearningManagementSystem.Models
 
         public string LastName { get; set; }
 
+        public string Course { get; set; }
         [Required]
-        public int CourseId { get; set; }
-
+         public int CourseId { get; set; }
 
         [Required]
         [EmailAddress]
@@ -97,6 +97,8 @@ namespace LearningManagementSystem.Models
         public IEnumerable<Course> Courses { get; set; }
         public List<IdentityRole> Roles { get; set; }
         public List<IdentityUser> users { get; set; }
+
+  
     }
 
     public class ResetPasswordViewModel

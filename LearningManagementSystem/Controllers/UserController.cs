@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,27 +18,7 @@ namespace LearningManagementSystem.Controllers
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
 
-        //public ActionResult Index(ApplicationUser u)
-        //{
 
-        //    var viewModel = new RegisterViewModel();
-
-        //    viewModel.Roles = context.Roles.ToList();
-        //    viewModel.Courses = context.Courses.ToList();
-
-         
-
-        //    List<RegisterViewModel> rv = new List<RegisterViewModel>();
-
-        //    foreach (var e in context.Users.ToList())
-        //    {
-               
-        //        rv.Add(new RegisterViewModel());
-        //    }
-
-        //    return View(context.Users.ToList());
-
-        //}
 
 
 
@@ -49,49 +30,68 @@ namespace LearningManagementSystem.Controllers
 
             ApplicationDbContext context = new ApplicationDbContext();
 
+            var courses = context.Courses.ToList();
             var viewModel = new RegisterViewModel();
-             
+
+
             viewModel.Roles = context.Roles.ToList();
             viewModel.Courses = context.Courses.ToList();
 
             return View(viewModel);
         }
+        
+          
+
+       
 
         [HttpPost]
         public ActionResult Register( RegisterViewModel model)
         {
             var userStore = new UserStore<IdentityUser>();
 
-            var user = new ApplicationUser();
+    
+
+
             UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
 
-            var identityResult=  userManager.Create ( new IdentityUser( model.Email),  model.Password);
+           
+
+
+
+            var identityResult =  userManager.Create ( new IdentityUser( model.Email),  model.Password);
+
+
 
             if (identityResult.Succeeded)
             {
-                // var Roles = context.Roles.ToList();
 
-                //context.Users.Add(user);
-                //context.SaveChanges();
+                
+                var userId = User.Identity.GetUserId();
+                var user = context.Users.Single(u => u.Id == userId);
+
+             
+
+
+                context.Users.Add(user);
+                context.SaveChanges();
 
                 return RedirectToAction("Index" ,"Home");
             }
+
+
+          
+
+            model.Courses = context.Courses.ToList();
+            model.Roles = context.Roles.ToList();
+
+
 
             ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
 
             return View(model);
         }
 
+        
     }
 }
 
-
-//var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-//if (ModelState.IsValid)
-//           {
-//               db.Courses.Add(course);
-//               db.SaveChanges();
-//               return RedirectToAction("Index");
-//           }
-
-//           return View(course);

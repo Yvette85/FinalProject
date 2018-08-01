@@ -6,6 +6,7 @@ namespace LearningManagementSystem.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Globalization;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<LearningManagementSystem.Models.ApplicationDbContext>
@@ -72,6 +73,26 @@ namespace LearningManagementSystem.Migrations
 
             //var john = userManager.FindByName("john@lexicon.se");
             //userManager.AddToRoles(john.Id, "Admin", "Editor");
+
+
+
+
+            //var courses = new[] {
+            //    new Course { Name = "c#", Description = "fundementals", StartDate= 2018-07-27 00:00:00},
+            //    new Member { FirstName = "Bo", LastName = "Bosson", Email = "bo@inter.net" },
+            //    new Member { FirstName = "George", LastName = "Gershwing", Email = "george@inter.net" },
+            //    new Member { FirstName = "Juliet", LastName = "Johnson", Email = "juliet@inter.net" },
+            //    new Member { FirstName = "Harold", LastName = "Haroldson", Email = "harold@inter.net" }
+
+            //     };
+            ////context.Members.AddOrUpdate(s => s.FirstName, members);
+            ////context.Members.AddOrUpdate(s => s.LastName, members);
+            //context.Members.AddOrUpdate(s => s.Email, members);
+
+            //context.SaveChanges();
+
         }
+
+
     }
 }
