@@ -9,54 +9,20 @@ using System.Web.Mvc;
 using LearningManagementSystem.Models;
 
 namespace LearningManagementSystem.Controllers
+
 {
     [Authorize]
     public class CoursesController : Controller
+
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Courses
         public ActionResult Index()
         {
-            List<IndexCourse> course = new List<IndexCourse>();
-            foreach (var g in db.Courses.ToList())
-            {
-                course.Add(new IndexCourse()
-                {
-                    Id = g.Id,
-                    Name = g.Name,
-                    StartDate = g.StartDate,
-                    Description = g.Description,
-                    
-                });
-            }
-
-            IndexCourseViewModel coursemodel = new IndexCourseViewModel();
-            coursemodel.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
-
-            return View(coursemodel);
+            return View(db.Courses.ToList());
         }
 
-        public ActionResult IndexHistory()
-        {
-            List<IndexCourse> course = new List<IndexCourse>();
-            foreach (var g in db.Courses.ToList())
-            {
-                course.Add(new IndexCourse()
-                {
-                    Id = g.Id,
-                    Name = g.Name,
-                    StartDate = g.StartDate,
-                    Description = g.Description,
-                    
-                });
-            }
-
-            IndexCourseViewModel coursemodel = new IndexCourseViewModel();
-            coursemodel.Courses = course.Where(x => x.StartDate < DateTime.Now).ToList();
-
-            return View(coursemodel);
-        }
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {
@@ -79,6 +45,10 @@ namespace LearningManagementSystem.Controllers
         {
             return View();
         }
+        //public ActionResult Create(RegisterStudent register)
+        //{
+        //    return View();
+        //}
 
         // POST: Courses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -97,6 +67,12 @@ namespace LearningManagementSystem.Controllers
             return View(course);
         }
 
+
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
+
         // GET: Courses/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -109,7 +85,7 @@ namespace LearningManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
-            return View(course); 
+            return View(course);
         }
 
         // POST: Courses/Edit/5
@@ -117,7 +93,7 @@ namespace LearningManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseId,CourseName,CourseDescription,CourseStartDate")] Course course)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,StartDate")] Course course)
         {
             if (ModelState.IsValid)
             {

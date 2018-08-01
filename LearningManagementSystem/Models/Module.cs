@@ -9,26 +9,21 @@ namespace LearningManagementSystem.Models
 {
     public class Module
     {
+
         public int ModuleId { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public string Description { get; set; }
-        
-         [Column(TypeName = "datetime2")]
-        public DateTime Start { get; set; }
-       
-        [Column(TypeName = "datetime2")]
-        public DateTime EndDate { get; set; }
-
-        [Required]
-        public string CourseId { get; set; }
-        //public IEnumerable<Course> ListCourse { get; set; }
+        public DateTime Start_Date { get; set; }
+        public DateTime End_Date { get; set; }
 
 
-        
+        public virtual Course Course { get; set; }
 
-               
+        public int CourseId { get; set; }
+
+        public List<Course> Courses { get; set; }
+
+
 
     }
 }
