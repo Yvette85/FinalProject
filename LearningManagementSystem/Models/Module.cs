@@ -10,8 +10,9 @@ namespace LearningManagementSystem.Models
     public class Module
     {
         public int ModuleId { get; set; }
-
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
         
          [Column(TypeName = "datetime2")]
@@ -19,9 +20,10 @@ namespace LearningManagementSystem.Models
        
         [Column(TypeName = "datetime2")]
         public DateTime EndDate { get; set; }
+
         [Required]
         public string CourseId { get; set; }
-        public IEnumerable<Course> ListCourse { get; set; }
+        //public IEnumerable<Course> ListCourse { get; set; }
 
 
         

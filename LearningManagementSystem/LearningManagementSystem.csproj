@@ -202,6 +202,22 @@
     <Compile Include="Migrations\201808010639354_schoolsprint1.Designer.cs">
       <DependentUpon>201808010639354_schoolsprint1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808010733537_schoolsprintt.cs" />
+    <Compile Include="Migrations\201808010733537_schoolsprintt.Designer.cs">
+      <DependentUpon>201808010733537_schoolsprintt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808010735191_schoolsprinttt.cs" />
+    <Compile Include="Migrations\201808010735191_schoolsprinttt.Designer.cs">
+      <DependentUpon>201808010735191_schoolsprinttt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808010758090_modulecreate.cs" />
+    <Compile Include="Migrations\201808010758090_modulecreate.Designer.cs">
+      <DependentUpon>201808010758090_modulecreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808010805291_modulecreate2.cs" />
+    <Compile Include="Migrations\201808010805291_modulecreate2.Designer.cs">
+      <DependentUpon>201808010805291_modulecreate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -305,6 +321,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808010639354_schoolsprint1.resx">
       <DependentUpon>201808010639354_schoolsprint1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010733537_schoolsprintt.resx">
+      <DependentUpon>201808010733537_schoolsprintt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010735191_schoolsprinttt.resx">
+      <DependentUpon>201808010735191_schoolsprinttt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010758090_modulecreate.resx">
+      <DependentUpon>201808010758090_modulecreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010805291_modulecreate2.resx">
+      <DependentUpon>201808010805291_modulecreate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

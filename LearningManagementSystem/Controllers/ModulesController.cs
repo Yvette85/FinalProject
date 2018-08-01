@@ -36,7 +36,7 @@ namespace LearningManagementSystem.Controllers
                 });
             }
 
-            IndexModule modulemodel = new IndexModule();
+            IndexModuleViewModels modulemodel = new IndexModuleViewModels();
             modulemodel.Modules = module.Where(x => x.Start > DateTime.Now).ToList();
 
             return View(modulemodel);
@@ -61,11 +61,11 @@ namespace LearningManagementSystem.Controllers
         // GET: Modules/Create
         public ActionResult Create()
         {
-            var model = new Module()
-            {
-                ListCourse = db.Courses,
-            };
-            return View(model);
+            //var model = new Module()
+            //{
+            //    ListCourse = db.Courses,
+            //};
+            return View();
         }
 
         // POST: Modules/Create

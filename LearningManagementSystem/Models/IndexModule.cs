@@ -22,7 +22,7 @@ namespace LearningManagementSystem.Models
         [Required]
         public int CourseId { get; set; }        
         
-        public List<IndexModule> Modules { get; set; }
+        //public List<IndexModule> Modules { get; set; }
         public IEnumerable<Course> ListCourse { get; set; }
 
     }
