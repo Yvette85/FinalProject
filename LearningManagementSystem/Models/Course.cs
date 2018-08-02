@@ -26,7 +26,7 @@ namespace LearningManagementSystem.Models
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        public virtual ICollection<ApplicationUser> Students { get; set; }
+        //public virtual ICollection<ApplicationUser> Users { get; set; }
 
 
     }

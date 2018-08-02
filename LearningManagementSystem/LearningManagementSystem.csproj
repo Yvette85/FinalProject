@@ -197,9 +197,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807310856486_yvette.cs" />
-    <Compile Include="Migrations\201807310856486_yvette.Designer.cs">
-      <DependentUpon>201807310856486_yvette.cs</DependentUpon>
+    <Compile Include="Migrations\201808021234423_t4.cs" />
+    <Compile Include="Migrations\201808021234423_t4.Designer.cs">
+      <DependentUpon>201808021234423_t4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808021254514_tg.cs" />
+    <Compile Include="Migrations\201808021254514_tg.Designer.cs">
+      <DependentUpon>201808021254514_tg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808021314323_tg2.cs" />
+    <Compile Include="Migrations\201808021314323_tg2.Designer.cs">
+      <DependentUpon>201808021314323_tg2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,8 +301,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807310856486_yvette.resx">
-      <DependentUpon>201807310856486_yvette.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808021234423_t4.resx">
+      <DependentUpon>201808021234423_t4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021254514_tg.resx">
+      <DependentUpon>201808021254514_tg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021314323_tg2.resx">
+      <DependentUpon>201808021314323_tg2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
