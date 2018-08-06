@@ -65,7 +65,8 @@ namespace LearningManagementSystem.Models
 
     public class RegisterViewModel
     {
-     
+        
+        public int Id { get; set; }
 
         public string FirstName { get; set; }
 
@@ -98,7 +99,7 @@ namespace LearningManagementSystem.Models
 
         public IEnumerable<Course> Courses { get; set; }
         public List<IdentityRole> Roles { get; set; }
-        public List<IdentityUser> Users { get; set; }
+        public IEnumerable<ApplicationUser> users { get; set; }
 
   
     }
