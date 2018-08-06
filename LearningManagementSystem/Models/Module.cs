@@ -11,6 +11,7 @@ namespace LearningManagementSystem.Models
     {
 
         public int ModuleId { get; set; }
+        [Display(Name="Module Name")]
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Start_Date { get; set; }
