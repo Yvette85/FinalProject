@@ -33,7 +33,7 @@ namespace LearningManagementSystem.Migrations
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new ApplicationUserManager(userStore);
 
-            var emails = new[] { "Teacher@lexicon.se", "Student@lexicon.se" };
+            var emails = new[] { "Teacher@lexicon.se", "Student@lexicon.se", "Ahmed@lexicon.se", "Fredrik@lexicon.se", "Borge@lexicon.se" };
 
             foreach (var email in emails)
             {
@@ -47,7 +47,7 @@ namespace LearningManagementSystem.Migrations
                 }
             }
 
-
+            
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
 
@@ -64,11 +64,24 @@ namespace LearningManagementSystem.Migrations
                 }
             }
 
+                       
+            
+
             var teacherUser = userManager.FindByName("Teacher@lexicon.se");
             userManager.AddToRole(teacherUser.Id, "Teacher");
 
             var studentUser = userManager.FindByName("Student@lexicon.se");
             userManager.AddToRole(studentUser.Id, "Student");
+
+            var borgeUser = userManager.FindByName("Borge@lexicon.se");
+            userManager.AddToRole(borgeUser.Id, "Student");
+
+            var fredrikUser = userManager.FindByName("Fredrik@lexicon.se");
+            userManager.AddToRole(fredrikUser.Id, "Student");
+
+            var ahmedUser = userManager.FindByName("Ahmed@lexicon.se");
+            userManager.AddToRole(ahmedUser.Id, "Student");
+
 
             //var john = userManager.FindByName("john@lexicon.se");
             //userManager.AddToRoles(john.Id, "Admin", "Editor");

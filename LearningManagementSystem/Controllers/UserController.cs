@@ -17,8 +17,7 @@ namespace LearningManagementSystem.Controllers
     
             public ActionResult Index()
         {
-
-            
+                  
             return View();
         }
 
