@@ -73,6 +73,11 @@ namespace LearningManagementSystem.Migrations
             //var john = userManager.FindByName("john@lexicon.se");
             //userManager.AddToRoles(john.Id, "Admin", "Editor");
 
+            //var users = new[]
+            //{
+            //    new ApplicationUser {}
+            //};
+
             var courses = new[]
             {
                 new Course { Id=1, Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
@@ -90,6 +95,13 @@ namespace LearningManagementSystem.Migrations
                 
             };
             context.Modules.AddOrUpdate(m => m.Name, modules);
+            context.SaveChanges();
+
+            var activities = new[]
+            {
+                new Activity {Name = "Listening and learn", Type ="E-Learning", Description ="Watch video 'Fullstack'", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1}
+            };
+            context.Activities.AddOrUpdate(a => a.Name, activities);
             context.SaveChanges();
 
         }

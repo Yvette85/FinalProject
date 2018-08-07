@@ -18,7 +18,7 @@ namespace LearningManagementSystem.Models
         [Required]
         [StringLength(255)]
         public string Description { get; set; }
-
+        [Display(Name="Start Date")]
         public DateTime StartDate { get; set; }
 
 
@@ -28,5 +28,4 @@ namespace LearningManagementSystem.Models
     }
 }
 
-//var isValid = DateTime.TryParseExact(Convert.ToString(value),
-//               "yyyy-mm-dd",
+  

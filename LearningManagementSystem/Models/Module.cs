@@ -14,7 +14,9 @@ namespace LearningManagementSystem.Models
         [Display(Name="Module Name")]
         public string Name { get; set; }
         public string Description { get; set; }
+        [Display(Name ="Start Date")]
         public DateTime Start_Date { get; set; }
+        [Display(Name ="End Date")]
         public DateTime End_Date { get; set; }
 
 

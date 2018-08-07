@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201808011104444_validation.Designer.cs">
       <DependentUpon>201808011104444_validation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808070739024_changethestringtodate.cs" />
+    <Compile Include="Migrations\201808070739024_changethestringtodate.Designer.cs">
+      <DependentUpon>201808070739024_changethestringtodate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -210,9 +214,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexCourse.cs" />
-    <Compile Include="Models\IndexCourseViewModel.cs" />
     <Compile Include="Models\IndexModule.cs" />
-    <Compile Include="Models\IndexModuleViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,6 +314,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808011104444_validation.resx">
       <DependentUpon>201808011104444_validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808070739024_changethestringtodate.resx">
+      <DependentUpon>201808070739024_changethestringtodate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
