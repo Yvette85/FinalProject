@@ -40,12 +40,44 @@ namespace LearningManagementSystem.Controllers
          
         }
 
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
+            var u = new ApplicationUser();
+        
+            //UserViewModel uv = new UserViewModel(u.FirstName , u.LastName , u.Email , u.RoleId);
+        
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
 
 
 
-        // GET: User
+    //    ParkedVehicle parkedVehicle = db.vehicles.Find(id);
+    //    Park park = new Park(parkedVehicle.Brand, parkedVehicle.Color, parkedVehicle.Model, parkedVehicle.ParkedTime, parkedVehicle.RegNum, parkedVehicle.NumberOfWheels, parkedVehicle.VehiclesTypeId, parkedVehicle.MemberId);
 
-        [Authorize(Roles = "Teacher")]
+
+    //        //VehiclesViewModel s = new VehiclesViewModel(parkedVehicle.Id, parkedVehicle.RegNum, parkedVehicle.VehicleTypes, DateTime.Now, parkedVehicle.ParkedTime); 
+
+
+    //        if (parkedVehicle == null)
+    //        {
+    //            return HttpNotFound();
+    //}
+
+
+
+    // GET: User
+
+    [Authorize(Roles = "Teacher")]
         public ActionResult Register()
         {
 
@@ -88,6 +120,7 @@ namespace LearningManagementSystem.Controllers
 
 
                 var identityResult = userManager.Create( user, model.Password);
+                
                 //(new IdentityUser (model.Email), model.Password);
 
 
@@ -117,7 +150,7 @@ namespace LearningManagementSystem.Controllers
                     //        throw new Exception(string.Join("\n", result.Errors));
                     //    }
                     //}
-                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.Role);
+                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
 
                     var User = userManager.FindByName(model.Email);
                     //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
@@ -157,20 +190,20 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = context.Users.Find(id);
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var user = context.Users.Find(id);
 
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
+        //    if (user == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(user);
+        //}
 
         public ActionResult Edit(int? id)
         {

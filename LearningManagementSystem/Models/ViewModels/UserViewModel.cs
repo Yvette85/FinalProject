@@ -7,7 +7,7 @@ namespace LearningManagementSystem.Models.ViewModels
 {
     public class UserViewModel
     {
-        private ApplicationUser u;
+        public ApplicationUser u;
 
         public UserViewModel(RegisterViewModel r)
 
@@ -17,7 +17,7 @@ namespace LearningManagementSystem.Models.ViewModels
             LastName = r.LastName;
             Email = r.Email;
 
-            Role = r.Role;
+
 
 
 
@@ -26,12 +26,13 @@ namespace LearningManagementSystem.Models.ViewModels
         public UserViewModel(ApplicationUser u)
         {
             this.u = u;
-           
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-            Role = u.Role;
+            //Role = u.RoleId ;
         }
+
+      
 
         public int Id { get; set; }
         public string FirstName { get; set; }
