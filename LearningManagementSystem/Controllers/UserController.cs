@@ -20,56 +20,27 @@ namespace LearningManagementSystem.Controllers
 
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
-
+        [Authorize(Roles = "Teacher")]
         public ActionResult Index()
         {
+            //var viewModel = new RegisterViewModel();
 
+            //viewModel.users = context.Users.ToList();
+
+        
             List<UserViewModel> rv = new List<UserViewModel>();
 
-            foreach (var u in context.Users.ToList())
+            foreach ( var u  in context.Users.ToList())
             {
                 rv.Add(new UserViewModel (u));
             }
 
             return View(rv);
 
-            //var viewModel = new RegisterViewModel();
-
-            //var users = context.Users.ToList();
-
-            //viewModel.users = context.Users.ToList();
-
-            //return View(viewModel);
+         
         }
 
 
-        //List<IndexVehicle> iv = new List<IndexVehicle>();
-
-       
-
-        //    foreach (ParkedVehicle e in parkedVehicle.ToList())
-
-        //    {
-        //        iv.Add(new IndexVehicle(e));
-              
-        //    }
-        //    return View(iv);
-
-
-    public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user  = context.Users.Find(id);
-
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
 
 
         // GET: User
@@ -146,7 +117,7 @@ namespace LearningManagementSystem.Controllers
                     //        throw new Exception(string.Join("\n", result.Errors));
                     //    }
                     //}
-                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.Role);
 
                     var User = userManager.FindByName(model.Email);
                     //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
@@ -183,6 +154,23 @@ namespace LearningManagementSystem.Controllers
 
         }
 
+
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
 
         public ActionResult Edit(int? id)
         {
