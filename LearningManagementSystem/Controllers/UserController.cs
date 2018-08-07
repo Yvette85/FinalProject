@@ -40,7 +40,7 @@ namespace LearningManagementSystem.Controllers
          
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
