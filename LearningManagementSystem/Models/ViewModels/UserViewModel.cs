@@ -9,6 +9,10 @@ namespace LearningManagementSystem.Models.ViewModels
     {
         public ApplicationUser u;
 
+        public UserViewModel( string FirstName , string LastName , string Email , string RoleName)
+        {
+        }
+
         public UserViewModel(RegisterViewModel r)
 
         {
@@ -29,7 +33,7 @@ namespace LearningManagementSystem.Models.ViewModels
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-            //Role = u.RoleId ;
+            RoleName = u.RoleName;
         }
 
       
@@ -38,7 +42,7 @@ namespace LearningManagementSystem.Models.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Role { get; set; }
+        public string RoleName { get; set; }
     }
 
 

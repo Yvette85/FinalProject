@@ -47,37 +47,28 @@ namespace LearningManagementSystem.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var user = context.Users.Find(id);
-            var u = new ApplicationUser();
-        
-            //UserViewModel uv = new UserViewModel(u.FirstName , u.LastName , u.Email , u.RoleId);
-        
+     
+
 
             if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+
+            UserViewModel uv = new UserViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
+
+            return View(uv);
         }
 
 
 
-    //    ParkedVehicle parkedVehicle = db.vehicles.Find(id);
-    //    Park park = new Park(parkedVehicle.Brand, parkedVehicle.Color, parkedVehicle.Model, parkedVehicle.ParkedTime, parkedVehicle.RegNum, parkedVehicle.NumberOfWheels, parkedVehicle.VehiclesTypeId, parkedVehicle.MemberId);
-
-
-    //        //VehiclesViewModel s = new VehiclesViewModel(parkedVehicle.Id, parkedVehicle.RegNum, parkedVehicle.VehicleTypes, DateTime.Now, parkedVehicle.ParkedTime); 
-
-
-    //        if (parkedVehicle == null)
-    //        {
-    //            return HttpNotFound();
-    //}
 
 
 
-    // GET: User
 
-    [Authorize(Roles = "Teacher")]
+        // GET: User
+
+        [Authorize(Roles = "Teacher")]
         public ActionResult Register()
         {
 
@@ -190,51 +181,54 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var user = context.Users.Find(id);
-
-        //    if (user == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(user);
-        //}
 
         public ActionResult Edit(int? id)
         {
 
- 
+
 
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var user =context.Users.Find(id);
+            var user = context.Users.Find(id);
+
+            UserViewModel uv = new UserViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
+
+
             if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+
+
+
+            return View(uv);
         }
 
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]RegisterViewModel model)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]EditViewModel ev)
         {
             if (ModelState.IsValid)
             {
+
+                var uv = context.Users.FirstOrDefault(x => x.Id == ev.Id);
+                uv.FirstName = ev.FirstName;
+                uv.LastName = ev.LastName;
+                uv.Email = ev.Email;
+
+
+
+
+
                 context.Entry(User).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(User);
+            return View(ev);
         }
     }
 }

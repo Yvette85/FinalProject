@@ -16,6 +16,8 @@ namespace LearningManagementSystem.Models
 
         //[Required]
         public int CourseId { get; set; }
+        public string RoleName { get;  set; }
+
         //public string Role { get; set; }
 
 
