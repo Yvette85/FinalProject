@@ -30,73 +30,6 @@ namespace LearningManagementSystem.Migrations
             //    );
             //
 
-            var userStore = new UserStore<ApplicationUser>(context);
-            var userManager = new ApplicationUserManager(userStore);
-
-            var studs = new[] { "Erik@lexicon.se", "David@lexicon.se", "Ahmed@lexicon.se", "Fredrik@lexicon.se", "Borge@lexicon.se", "Teacher@lexicon.se"};
-
-            foreach (var stud in studs)
-            {
-                if (context.Users.Any(u => u.UserName == stud)) continue;
-
-                var user = new ApplicationUser { UserName = stud, Email = stud };
-                var result = userManager.Create(user, "lexicon");
-                if (!result.Succeeded)
-                {
-                    throw new Exception(string.Join("\n", result.Errors));
-                }
-            }
-
-            
-            var roleStore = new RoleStore<IdentityRole>(context);
-            var roleManager = new RoleManager<IdentityRole>(roleStore);
-
-            var roleNames = new[] { "Teacher", "Student" };
-            foreach (var roleName in roleNames)
-            {
-                if (context.Roles.Any(r => r.Name == roleName)) continue;
-
-                var role = new IdentityRole { Name = roleName };
-                var result = roleManager.Create(role);
-                if (!result.Succeeded)
-                {
-                    throw new Exception(string.Join("\n", result.Errors));
-                }
-            }
-
-            
-           // var stud = userManager.Create(new ApplicationUser("stud@"),
-            
-
-
-            var studentUser = userManager.FindByName("Erik@lexicon.se");
-            userManager.AddToRole(studentUser.Id, "Student");
-
-            var davidUser = userManager.FindByName("David@lexicon.se");
-            userManager.AddToRole(studentUser.Id, "Student");
-
-            var ahmedUser = userManager.FindByName("Ahmed@lexicon.se");
-            userManager.AddToRole(ahmedUser.Id, "Student");
-            
-            var fredrikUser = userManager.FindByName("Fredrik@lexicon.se");
-            userManager.AddToRole(fredrikUser.Id, "Student");
-
-            var borgeUser = userManager.FindByName("Borge@lexicon.se");
-            userManager.AddToRole(borgeUser.Id, "Student");
-
-
-            var teacherUser = userManager.FindByName("Teacher@lexicon.se");
-            userManager.AddToRole(teacherUser.Id, "Teacher");
-
-
-            //var john = userManager.FindByName("john@lexicon.se");
-            //userManager.AddToRoles(john.Id, "Admin", "Editor");
-
-            //var users = new[]
-            //{
-            //    new ApplicationUser {}
-            //};
-
             var courses = new[]
             {
                 new Course { Id=1, Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
@@ -122,6 +55,87 @@ namespace LearningManagementSystem.Migrations
             };
             context.Activities.AddOrUpdate(a => a.Name, activities);
             context.SaveChanges();
+
+
+
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new ApplicationUserManager(userStore);
+
+            var studs = new[] { new ApplicationUser { FirstName = "Erik", LastName = "Eriksson", Email = "Erik@lexicon.se", CourseId = 1, UserName ="Erik@lexicon.se" } };
+
+            foreach (var stud in studs)
+            {
+                if (context.Users.Any(u => u.UserName == stud.UserName)) continue;
+
+                //var user = new ApplicationUser { UserName = stud., Email = stud, FirstName = stud, LastName = stud};
+                var result = userManager.Create(stud, "lexicon");
+                if (!result.Succeeded)
+                {
+                    throw new Exception(string.Join("\n", result.Errors));
+                }
+            }
+
+            context.Users.AddOrUpdate(u => u.UserName, studs);
+            context.SaveChanges();
+
+            
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var roleNames = new[] { "Teacher", "Student" };
+            foreach (var roleName in roleNames)
+            {
+                if (context.Roles.Any(r => r.Name == roleName)) continue;
+
+                var role = new IdentityRole { Name = roleName };
+                var result = roleManager.Create(role);
+                if (!result.Succeeded)
+                {
+                    throw new Exception(string.Join("\n", result.Errors));
+                }
+            }
+
+
+                
+
+
+
+            var erikUser = userManager.FindByName("Erik@lexicon.se");
+            userManager.AddToRole(erikUser.Id, "Student");
+            erikUser.CourseId = 1;
+                //context.Courses.FirstOrDefault
+
+            var davidUser = userManager.FindByName("David@lexicon.se");
+            userManager.AddToRole(davidUser.Id, "Student");
+            davidUser.CourseId = 1;
+
+
+            var ahmedUser = userManager.FindByName("Ahmed@lexicon.se");
+            userManager.AddToRole(ahmedUser.Id, "Student");
+            ahmedUser.CourseId = 2;
+            
+            var fredrikUser = userManager.FindByName("Fredrik@lexicon.se");
+            userManager.AddToRole(fredrikUser.Id, "Student");
+            fredrikUser.CourseId = 2;
+
+            var borgeUser = userManager.FindByName("Borge@lexicon.se");
+            userManager.AddToRole(borgeUser.Id, "Student");
+            borgeUser.CourseId = 1;
+
+
+            var teacherUser = userManager.FindByName("Teacher@lexicon.se");
+            userManager.AddToRole(teacherUser.Id, "Teacher");
+
+
+            //var john = userManager.FindByName("john@lexicon.se");
+            //userManager.AddToRoles(john.Id, "Admin", "Editor");
+
+            //var users = new[]
+            //{
+            //    new ApplicationUser {}
+            //};
+           
+
 
         }
     }
