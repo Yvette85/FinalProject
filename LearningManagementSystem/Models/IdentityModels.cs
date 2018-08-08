@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace LearningManagementSystem.Models
         //[Required]
         public int CourseId { get; set; }
         public string RoleName { get;  set; }
+        public string CourseName { get; set; }
+
+        public IEnumerable<Course> Courses { get; set; }
 
         //public string Role { get; set; }
 

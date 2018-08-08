@@ -91,11 +91,14 @@ namespace LearningManagementSystem.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        [Required]
-        public string RoleName { get; set; }
+        //[Required]
+        //public string RoleName { get; set; }
 
         public string RoleId { get; set; }
 
+        //public string CourseName { get; set; }
+
+        //public string CourseId { get; set; }
 
         public IEnumerable<Course> Courses { get; set; }
         public List<IdentityRole> Roles { get; set; }

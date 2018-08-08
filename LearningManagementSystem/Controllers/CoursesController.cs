@@ -17,11 +17,43 @@ namespace LearningManagementSystem.Controllers
         // GET: Courses
         public ActionResult Index()
         {
+            List<>
+            
             return View(db.Courses.ToList());
         }
 
-        // GET: Courses/Details/5
-        public ActionResult Details(int? id)
+
+
+
+
+        //public ActionResult Index()
+        //{
+        //    var viewModel = new RegisterViewModel();
+
+        //    //viewModel.users = context.Users.ToList();
+
+
+        //    List<StudentViewModel> rv = new List<StudentViewModel>();
+        //    RegisterViewModel model = new RegisterViewModel();
+
+
+        //    foreach (var u in context.Users.ToList())
+        //    {
+        //        rv.Add(new StudentViewModel(u));
+        //    }
+
+        //    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+        //    viewModel.Roles = context.Roles.ToList();
+
+        //    //var User = userManager.FindByName(model.Email);
+        //    //userManager.AddToRole(User.Id, Role.Name);
+
+        //    return View(rv);
+
+
+
+            // GET: Courses/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

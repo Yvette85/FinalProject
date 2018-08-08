@@ -23,42 +23,50 @@ namespace LearningManagementSystem.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult Index()
         {
-            //var viewModel = new RegisterViewModel();
+            var viewModel = new RegisterViewModel();
 
             //viewModel.users = context.Users.ToList();
 
-        
-            List<UserViewModel> rv = new List<UserViewModel>();
 
+            List<StudentViewModel> rv = new List<StudentViewModel>();
+            RegisterViewModel model = new RegisterViewModel();
+            
+            
             foreach ( var u  in context.Users.ToList())
             {
-                rv.Add(new UserViewModel (u));
+                rv.Add(new StudentViewModel (u));
             }
+       
+            var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+            viewModel.Roles = context.Roles.ToList();
+
+            //var User = userManager.FindByName(model.Email);
+            //userManager.AddToRole(User.Id, Role.Name);
 
             return View(rv);
 
          
         }
 
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = context.Users.Find(id);
+        //public ActionResult Details(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var user = context.Users.Find(id);
      
 
 
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+        //    if (user == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            UserViewModel uv = new UserViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
+        //    StudentViewModel uv = new StudentViewModel(user.FirstName, user.LastName, user.Email, user.CourseName);
 
-            return View(uv);
-        }
+        //    return View(uv);
+        //}
 
 
 
@@ -182,29 +190,29 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        public ActionResult Edit(int? id)
-        {
+        //public ActionResult Edit(int? id)
+        //{
 
 
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = context.Users.Find(id);
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var user = context.Users.Find(id);
 
-            UserViewModel uv = new UserViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
-
-
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+        //    StudentViewModel uv = new StudentViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
 
 
+        //    if (user == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            return View(uv);
-        }
+
+
+        //    return View(uv);
+        //}
 
 
 
