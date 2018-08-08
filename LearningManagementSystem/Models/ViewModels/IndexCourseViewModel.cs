@@ -7,6 +7,6 @@ namespace LearningManagementSystem.Models.ViewModels
 {
     public class IndexCourseViewModel
     {
-        public List<IndexCourse> ic { get; set; }
+        public List<IndexCourse> Courses{ get; set; }
     }
 }

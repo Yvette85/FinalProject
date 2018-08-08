@@ -38,9 +38,10 @@ namespace LearningManagementSystem.Controllers
                 });
             }
             IndexCourseViewModel ic = new IndexCourseViewModel();
-            
 
-            return View(student);
+           ic.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
+
+            return View(ic);
           
         }
 
