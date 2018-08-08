@@ -43,6 +43,8 @@ namespace LearningManagementSystem.Controllers
         }
 
 
+
+
         //        List<IndexCourse> course = new List<IndexCourse>();
         //            foreach (var g in db.Courses.ToList())
         //            {
