@@ -17,7 +17,7 @@ namespace LearningManagementSystem.Controllers
         private ApplicationDbContext context = new ApplicationDbContext();
 
         // GET: Courses
-        public ActionResult Index()
+        public ActionResult IndexHistory()
         {
             
             
@@ -25,7 +25,7 @@ namespace LearningManagementSystem.Controllers
         }
 
 
-        public ActionResult IndexHistory()
+        public ActionResult Index()
         {
             List<UserViewModel> student = new List<UserViewModel>();
             foreach (var s in context.Users.ToList())
