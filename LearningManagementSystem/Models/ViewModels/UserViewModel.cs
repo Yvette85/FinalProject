@@ -5,18 +5,18 @@ using System.Web;
 
 namespace LearningManagementSystem.Models.ViewModels
 {
-    public class IndexHistory
+    public class UserViewModel
     {
 
   
      
             public ApplicationUser u;
 
-        public IndexHistory()
+        public UserViewModel()
         {
         }
 
-        public IndexHistory(ApplicationUser u)
+        public UserViewModel(ApplicationUser u)
         {
             Id = u.Id;
             FirstName = u.FirstName;

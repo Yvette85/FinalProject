@@ -27,10 +27,10 @@ namespace LearningManagementSystem.Controllers
 
         public ActionResult IndexHistory()
         {
-            List<IndexHistory> student = new List<IndexHistory>();
+            List<UserViewModel> student = new List<UserViewModel>();
             foreach (var s in context.Users.ToList())
             {
-                student.Add(new IndexHistory()
+                student.Add(new UserViewModel()
                 {
                     Id = s.Id,
                     FirstName = s.FirstName,
