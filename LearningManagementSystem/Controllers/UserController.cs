@@ -28,13 +28,13 @@ namespace LearningManagementSystem.Controllers
             //viewModel.users = context.Users.ToList();
 
 
-            List<StudentViewModel> rv = new List<StudentViewModel>();
+            List<IndexHistory> rv = new List<IndexHistory>();
             RegisterViewModel model = new RegisterViewModel();
             
             
             foreach ( var u  in context.Users.ToList())
             {
-                rv.Add(new StudentViewModel (u));
+                rv.Add(new IndexHistory (u));
             }
        
             var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);

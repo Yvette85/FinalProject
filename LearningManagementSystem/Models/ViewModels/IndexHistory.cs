@@ -5,27 +5,35 @@ using System.Web;
 
 namespace LearningManagementSystem.Models.ViewModels
 {
-    public class StudentViewModel
+    public class IndexHistory
     {
-        public ApplicationUser u;
 
-        public StudentViewModel(ApplicationUser u)
+  
+     
+            public ApplicationUser u;
+
+        public IndexHistory()
         {
-            this.u = u;
-            FirstName = u.FirstName;
-            LastName = u.LastName;
-        
-   
         }
 
-      
+        public IndexHistory(ApplicationUser u)
+        {
+            Id = u.Id;
+            FirstName = u.FirstName;
+            LastName = u.LastName;
 
-        public int Id { get; set; }
+
+        }
+
+
+
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-     
-      
+
+
     }
 
 
 }
+

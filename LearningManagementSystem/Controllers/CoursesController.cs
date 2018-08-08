@@ -7,21 +7,62 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LearningManagementSystem.Models;
+using LearningManagementSystem.Models.ViewModels;
 
 namespace LearningManagementSystem.Controllers
 {
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext context = new ApplicationDbContext();
 
         // GET: Courses
         public ActionResult Index()
         {
-            List<>
+            
             
             return View(db.Courses.ToList());
         }
 
+
+        public ActionResult IndexHistory()
+        {
+            List<IndexHistory> student = new List<IndexHistory>();
+            foreach (var s in context.Users.ToList())
+            {
+                student.Add(new IndexHistory()
+                {
+                    Id = s.Id,
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                });
+            }
+
+            return View(student);
+          
+        }
+
+
+        //        List<IndexCourse> course = new List<IndexCourse>();
+        //            foreach (var g in db.Courses.ToList())
+        //            {
+        //                course.Add(new IndexCourse()
+        //        {
+        //            Id = g.Id,
+        //                    Name = g.Name,
+        //                    StartDate = g.StartDate,
+        //                    Description = g.Description,
+
+
+
+        //                });
+        //            }
+
+        //    IndexCourseViewModel coursemodel = new IndexCourseViewModel();
+        //    coursemodel.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
+
+        //            return View(coursemodel);
+        //}
 
 
 
@@ -52,8 +93,8 @@ namespace LearningManagementSystem.Controllers
 
 
 
-            // GET: Courses/Details/5
-            public ActionResult Details(int? id)
+        // GET: Courses/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {

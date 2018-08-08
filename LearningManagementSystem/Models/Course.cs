@@ -9,6 +9,7 @@ namespace LearningManagementSystem.Models
 {
     public class Course
     {
+        [Required]
         public int Id { get; set; }
 
         [Required]
@@ -26,7 +27,7 @@ namespace LearningManagementSystem.Models
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        //public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<ApplicationUser> Users { get; set; }
 
 
     }

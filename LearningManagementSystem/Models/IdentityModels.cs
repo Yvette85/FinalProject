@@ -15,9 +15,11 @@ namespace LearningManagementSystem.Models
 
         public string LastName { get; set; }
 
-        //[Required]
-        public int CourseId { get; set; }
+       
+        public int? CourseId { get; set; }
+
         public string RoleName { get;  set; }
+
         public string CourseName { get; set; }
 
         public IEnumerable<Course> Courses { get; set; }
