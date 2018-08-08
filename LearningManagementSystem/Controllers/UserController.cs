@@ -37,8 +37,7 @@ namespace LearningManagementSystem.Controllers
                 rv.Add(new UserViewModel (u));
             }
        
-            var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
-            viewModel.Roles = context.Roles.ToList();
+          
 
             //var User = userManager.FindByName(model.Email);
             //userManager.AddToRole(User.Id, Role.Name);

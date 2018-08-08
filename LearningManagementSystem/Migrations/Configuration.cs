@@ -77,19 +77,20 @@ namespace LearningManagementSystem.Migrations
 
 
 
-            //var courses = new[] {
-            //    new Course { Name = "c#", Description = "fundementals", StartDate= 2018-07-27 00:00:00},
-            //    new Member { FirstName = "Bo", LastName = "Bosson", Email = "bo@inter.net" },
-            //    new Member { FirstName = "George", LastName = "Gershwing", Email = "george@inter.net" },
-            //    new Member { FirstName = "Juliet", LastName = "Johnson", Email = "juliet@inter.net" },
-            //    new Member { FirstName = "Harold", LastName = "Haroldson", Email = "harold@inter.net" }
+            var users= new[] {
+                new ApplicationUser { FirstName = "Yvette", LastName = "Kamariza", Email = "yv1@lexicon.se"},
+                new ApplicationUser { FirstName = "Jeanine", LastName = "Keza", Email = "jeanine@lexicon.se"},
+                new ApplicationUser { FirstName = "Colette", LastName = "Munezero", Email = "cole@lexicon.se"},
+                new ApplicationUser { FirstName = "Carine", LastName = "Anders", Email = "carine@lexicon.se"},
+                new ApplicationUser { FirstName = "Yvan", LastName = "Carlsson", Email = "yv12@lexicon.se"},
+                new ApplicationUser { FirstName = "Dan", LastName = "Nicksson", Email = "nick@lexicon.se"},
+                new ApplicationUser { FirstName = "dada", LastName = "Muhimpundu", Email = "dada@lexicon.se"},
+                
+                 };
+          
+            context.Users.AddOrUpdate(s => s.Email, users);
 
-            //     };
-            ////context.Members.AddOrUpdate(s => s.FirstName, members);
-            ////context.Members.AddOrUpdate(s => s.LastName, members);
-            //context.Members.AddOrUpdate(s => s.Email, members);
-
-            //context.SaveChanges();
+            context.SaveChanges();
 
         }
 

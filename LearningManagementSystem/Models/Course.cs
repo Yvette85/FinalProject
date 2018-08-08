@@ -9,7 +9,7 @@ namespace LearningManagementSystem.Models
 {
     public class Course
     {
-        [Required]
+     
         public int Id { get; set; }
 
         [Required]

@@ -27,14 +27,17 @@ namespace LearningManagementSystem.Controllers
 
         public ActionResult Index()
         {
-            List<IndexCourse> student = new List<IndexCourse>();
-            foreach (var s in context.Users.ToList())
+            List<IndexCourse> course = new List<IndexCourse>();
+            foreach (var s in context.Courses.ToList())
             {
-                student.Add(new IndexCourse()
+               course.Add(new IndexCourse()
                 {
-                    Id = s.Id,
-                    FirstName = s.FirstName,
-                    LastName = s.LastName,
+                   Id = s.Id,
+                   Name = s.Name,
+                   StartDate =s.StartDate,
+                   Description = s.Description,
+                   
+            
                 });
             }
             IndexCourseViewModel ic = new IndexCourseViewModel();
