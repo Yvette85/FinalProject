@@ -7,13 +7,13 @@ namespace LearningManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class student : IMigrationMetadata
+    public sealed partial class tv : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(student));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tv));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808090849501_student"; }
+            get { return "201808091124416_tv"; }
         }
         
         string IMigrationMetadata.Source

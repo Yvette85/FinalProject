@@ -29,9 +29,9 @@ namespace LearningManagementSystem.Models
 
         //public virtual ICollection<ApplicationUser> Users { get; set; }
 
-        public string UserId { get; set; }
+     
 
-        public virtual ApplicationUser ApplicationUser{ get; set; }
+        //public virtual ApplicationUser ApplicationUser{ get; set; }
 
 
 

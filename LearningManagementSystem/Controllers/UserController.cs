@@ -107,7 +107,13 @@ namespace LearningManagementSystem.Controllers
 
             if (ModelState.IsValid)
             {
-               var user = new ApplicationUser { Email = model.Email ,UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+
+                var courses = context.Courses.ToList();
+
+                var user = new ApplicationUser { Email = model.Email ,UserName = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName ,
+                   CourseId = model.CourseId};
 
 
 
@@ -183,7 +189,7 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit( string id)
         {
 
 
@@ -222,7 +228,7 @@ namespace LearningManagementSystem.Controllers
 
 
 
-                context.Entry(editv).State = EntityState.Modified;
+                //context.Entry(editv).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

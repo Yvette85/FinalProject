@@ -22,7 +22,8 @@ namespace LearningManagementSystem.Models.ViewModels
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-
+            CourseName = u.CourseId;
+          
 
         }
 
@@ -32,7 +33,8 @@ namespace LearningManagementSystem.Models.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-
+        public string CourseName { get; set; }
+ 
 
     }
 

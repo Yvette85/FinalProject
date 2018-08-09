@@ -42,11 +42,11 @@ namespace LearningManagementSystem.Migrations
 
                 var user = new ApplicationUser { UserName = email, Email = email, FirstName = "Yvette", LastName = "Kamariza" };
 
-                var user1 = new ApplicationUser { FirstName = "Carine", LastName = "Keza", Email = "carine@lexicon.se" , RoleName ="Student" };
-                var user2= new ApplicationUser { FirstName = "Diane", LastName = "Mune", Email = "diane@lexicon.se" ,RoleName = "Teacher" };
-                var user3 = new ApplicationUser { FirstName = "Dody", LastName = "Sinda", Email = "dody@lexicon.se", RoleName = "Student" };
-                var user4 = new ApplicationUser { FirstName = "Didi", LastName = "Kat", Email = "didi@lexicon.se", RoleName = "Student" };
-                var user5 = new ApplicationUser { FirstName = "Josiane", LastName = "Muke", Email = "muke@lexicon.se", RoleName = "Teacher" };
+                var user1 = new ApplicationUser { FirstName = "Carine", LastName = "Keza", Email = "carine@lexicon.se" , CourseName="Java"};
+                var user2 = new ApplicationUser { FirstName = "Diane", LastName = "Mune", Email = "diane@lexicon.se", CourseName =".Net" };
+                var user3 = new ApplicationUser { FirstName = "Dody", LastName = "Sinda", Email = "dody@lexicon.se" , CourseName= "C++" };
+                var user4 = new ApplicationUser { FirstName = "Didi", LastName = "Kat", Email = "didi@lexicon.se", CourseName = "Java" };
+                var user5 = new ApplicationUser { FirstName = "Josiane", LastName = "Muke", Email = "muke@lexicon.se" };
 
                 var result = userManager.Create(user, "lexico");
                 if (!result.Succeeded)
@@ -84,23 +84,20 @@ namespace LearningManagementSystem.Migrations
 
 
 
-            var courses = new[] {
-                new Course { Name = "Php", Description = "fundementals", StartDate = "yv1@lexicon.se"},
-                //new ApplicationUser { FirstName = "Jeanine", LastName = "Keza", Email = "jeanine@lexicon.se"},
-                //new ApplicationUser { FirstName = "Colette", LastName = "Munezero", Email = "cole@lexicon.se"},
-                //new ApplicationUser { FirstName = "Carine", LastName = "Anders", Email = "carine@lexicon.se"},
-                //new ApplicationUser { FirstName = "Yvan", LastName = "Carlsson", Email = "yv12@lexicon.se"},
-                //new ApplicationUser { FirstName = "Dan", LastName = "Nicksson", Email = "nick@lexicon.se"},
-                //new ApplicationUser { FirstName = "dada", LastName = "Muhimpundu", Email = "dada@lexicon.se"},
+            var courses = new[]
+           {
+                new Course { Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Name ="Java", Description ="Java Course", StartDate = DateTime.Now.AddDays(10)},
+                new Course { Name ="C++", Description ="Fundamentals in C++", StartDate = DateTime.Now.AddDays(-600)}
+            };
 
-                 };
-
-            context.Users.AddOrUpdate(s => s.Email, users);
-
+            context.Courses.AddOrUpdate(c => c.Name, courses);
             context.SaveChanges();
 
         }
 
 
     }
+
+
 }

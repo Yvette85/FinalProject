@@ -18,12 +18,14 @@ namespace LearningManagementSystem.Models
         public string LastName { get; set; }
 
        
-        public int? CourseId { get; set; }
+        public string CourseId { get; set; }
 
-       
+
+        public string CourseName { get; set; }
+
         public virtual ICollection<Course> Courses { get; set; }
 
-        public string RoleName { get; set; }
+        //public string RoleName { get; set; }
 
 
         //[Required]
