@@ -25,6 +25,6 @@ namespace LearningManagementSystem.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<LearningManagementSystem.Models.ApplicationUser> ApplicationUsers { get; set; }
+       
     }
 }
