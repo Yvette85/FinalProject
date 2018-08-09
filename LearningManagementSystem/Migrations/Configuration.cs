@@ -42,12 +42,7 @@ namespace LearningManagementSystem.Migrations
 
                 var user = new ApplicationUser { UserName = email, Email = email, FirstName = "Yvette", LastName = "Kamariza" };
 
-                var user1 = new ApplicationUser { FirstName = "Carine", LastName = "Keza", Email = "carine@lexicon.se" , CourseName="Java"};
-                var user2 = new ApplicationUser { FirstName = "Diane", LastName = "Mune", Email = "diane@lexicon.se", CourseName =".Net" };
-                var user3 = new ApplicationUser { FirstName = "Dody", LastName = "Sinda", Email = "dody@lexicon.se" , CourseName= "C++" };
-                var user4 = new ApplicationUser { FirstName = "Didi", LastName = "Kat", Email = "didi@lexicon.se", CourseName = "Java" };
-                var user5 = new ApplicationUser { FirstName = "Josiane", LastName = "Muke", Email = "muke@lexicon.se" };
-
+              
                 var result = userManager.Create(user, "lexico");
                 if (!result.Succeeded)
                 {
