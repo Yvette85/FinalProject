@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -20,7 +21,7 @@ namespace LearningManagementSystem.Models
         public int? CourseId { get; set; }
 
        
-        public IEnumerable<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
 
         //public string Role { get; set; }
 

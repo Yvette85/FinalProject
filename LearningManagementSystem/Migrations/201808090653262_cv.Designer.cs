@@ -7,13 +7,13 @@ namespace LearningManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class sc : IMigrationMetadata
+    public sealed partial class cv : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cv));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808081341293_sc"; }
+            get { return "201808090653262_cv"; }
         }
         
         string IMigrationMetadata.Source
