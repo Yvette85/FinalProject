@@ -25,6 +25,5 @@ namespace LearningManagementSystem.Models
         public int ModuleId { get; set; }
 
 
-
     }
 }

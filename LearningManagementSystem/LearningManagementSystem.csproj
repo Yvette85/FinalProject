@@ -199,21 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808081156454_maybestudinseed3.cs" />
-    <Compile Include="Migrations\201808081156454_maybestudinseed3.Designer.cs">
-      <DependentUpon>201808081156454_maybestudinseed3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808081210300_maybestudinseed4.cs" />
-    <Compile Include="Migrations\201808081210300_maybestudinseed4.Designer.cs">
-      <DependentUpon>201808081210300_maybestudinseed4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808081223142_maybestudinseed5.cs" />
-    <Compile Include="Migrations\201808081223142_maybestudinseed5.Designer.cs">
-      <DependentUpon>201808081223142_maybestudinseed5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808081226440_maybestudinseed6.cs" />
-    <Compile Include="Migrations\201808081226440_maybestudinseed6.Designer.cs">
-      <DependentUpon>201808081226440_maybestudinseed6.cs</DependentUpon>
+    <Compile Include="Migrations\201808090844342_appliuserdisplay3.cs" />
+    <Compile Include="Migrations\201808090844342_appliuserdisplay3.Designer.cs">
+      <DependentUpon>201808090844342_appliuserdisplay3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -322,17 +310,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808081156454_maybestudinseed3.resx">
-      <DependentUpon>201808081156454_maybestudinseed3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081210300_maybestudinseed4.resx">
-      <DependentUpon>201808081210300_maybestudinseed4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081223142_maybestudinseed5.resx">
-      <DependentUpon>201808081223142_maybestudinseed5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081226440_maybestudinseed6.resx">
-      <DependentUpon>201808081226440_maybestudinseed6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808090844342_appliuserdisplay3.resx">
+      <DependentUpon>201808090844342_appliuserdisplay3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
