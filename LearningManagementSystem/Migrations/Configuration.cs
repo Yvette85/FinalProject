@@ -54,8 +54,8 @@ namespace LearningManagementSystem.Migrations
             var activities = new[]
             {
                 new Activity {Name = "Listen and learn", Type ="E-Learning", Description ="Watch video 'Entityframwork'", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
-                new Activity {Name = "Writing the Matrix", Type ="CodeALong", Description ="Codeing a long with John", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
-                new Activity {Name = "Zoo animals and there unatural habitat", Type ="Lecture", Description ="Adrian will talk about the animals at the zoo", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
+                new Activity {Name = "Writing the Matrix", Type ="CodeALong", Description ="Coding a long with John", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
+                new Activity {Name = "Zoo animals and there unnatural habitat", Type ="Lecture", Description ="Adrian will talk about the animals at the zoo", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
                 new Activity {Name = "Garage", Type ="Exercise", Description ="You will be given an exerices to code a garage", Start_Time = DateTime.Now.AddDays(10), End_Time = DateTime.Now.AddDays(110), ModuleId = 1},
 
             };
