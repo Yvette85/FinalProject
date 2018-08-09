@@ -5,15 +5,19 @@ using System.Web;
 
 namespace LearningManagementSystem.Models.ViewModels
 {
-    public class EditViewModel
+  
+
+
+    public class DetailsViewModel
     {
+
         public ApplicationUser u;
 
-        public EditViewModel()
+        public DetailsViewModel()
         {
         }
 
-        public EditViewModel( ApplicationUser u )
+        public DetailsViewModel(ApplicationUser u)
         {
             Id = u.Id;
             FirstName = u.FirstName;
@@ -21,11 +25,11 @@ namespace LearningManagementSystem.Models.ViewModels
             Email = u.Email;
         }
 
-       
 
         public string Id { get; set; }
-        public string  FirstName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+  
     }
 }

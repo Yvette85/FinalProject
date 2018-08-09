@@ -23,7 +23,7 @@ namespace LearningManagementSystem.Models
        
         public virtual ICollection<Course> Courses { get; set; }
 
-        //public string Role { get; set; }
+        public string RoleName { get; set; }
 
 
         //[Required]

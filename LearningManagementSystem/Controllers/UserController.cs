@@ -47,25 +47,26 @@ namespace LearningManagementSystem.Controllers
          
         }
 
-        //public ActionResult Details(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var user = context.Users.Find(id);
-     
+
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
 
 
-        //    if (user == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
 
-        //    StudentViewModel uv = new StudentViewModel(user.FirstName, user.LastName, user.Email, user.CourseName);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
 
-        //    return View(uv);
-        //}
+          DetailsViewModel dv = new DetailsViewModel (user);
+
+            return View(dv);
+        }
 
 
 
@@ -83,10 +84,7 @@ namespace LearningManagementSystem.Controllers
 
             var viewModel = new RegisterViewModel();
 
-            //ViewBag.CourseId = context.Courses.Select(c => c.Name);
            
-            //var course = context.Courses.Select(c => c.Name);
-
             viewModel.Roles = context.Roles.ToList();
             viewModel.Courses = context.Courses.ToList();
 
@@ -94,11 +92,7 @@ namespace LearningManagementSystem.Controllers
         }
 
 
-
-
-
-
-        //var course = context.Courses.Select(c => c.Name);
+       
 
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
@@ -189,53 +183,50 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        //public ActionResult Edit(int? id)
-        //{
+        public ActionResult Edit(int? id)
+        {
 
 
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
 
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var user = context.Users.Find(id);
-
-        //    StudentViewModel uv = new StudentViewModel(user.FirstName, user.LastName, user.Email, user.RoleName);
-
-
-        //    if (user == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+            EditViewModel ev = new EditViewModel(user);
 
 
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
 
-        //    return View(uv);
-        //}
+           
+
+            return View(ev);
+        }
 
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]EditViewModel ev)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]EditViewModel editv)
         {
             if (ModelState.IsValid)
             {
 
-                var uv = context.Users.FirstOrDefault(x => x.Id == ev.Id);
-                uv.FirstName = ev.FirstName;
-                uv.LastName = ev.LastName;
-                uv.Email = ev.Email;
+                var uv = context.Users.FirstOrDefault(x => x.Id == editv.Id);
+                uv.FirstName = editv.FirstName;
+                uv.LastName = editv.LastName;
+                uv.Email = editv.Email;
 
 
 
-
-
-                context.Entry(User).State = EntityState.Modified;
+                context.Entry(editv).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ev);
+            return View(editv);
         }
     }
 }

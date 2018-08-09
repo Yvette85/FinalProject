@@ -1,4 +1,4 @@
-﻿@*@model LearningManagementSystem.Models.ViewModels.StudentViewModel
+﻿@model LearningManagementSystem.Models.ViewModels.DetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -37,13 +37,13 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.RoleName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.RoleName)
-        </dd>
+        </dd>*@
 
 
 
@@ -53,5 +53,5 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
-</p>*@
+</p>
 

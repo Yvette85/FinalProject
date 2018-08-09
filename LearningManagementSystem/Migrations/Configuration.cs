@@ -41,7 +41,12 @@ namespace LearningManagementSystem.Migrations
                 if (context.Users.Any(u => u.UserName == email)) continue;
 
                 var user = new ApplicationUser { UserName = email, Email = email, FirstName = "Yvette", LastName = "Kamariza" };
-               
+
+                var user1 = new ApplicationUser { FirstName = "Carine", LastName = "Keza", Email = "carine@lexicon.se" , RoleName ="Student" };
+                var user2= new ApplicationUser { FirstName = "Diane", LastName = "Mune", Email = "diane@lexicon.se" ,RoleName = "Teacher" };
+                var user3 = new ApplicationUser { FirstName = "Dody", LastName = "Sinda", Email = "dody@lexicon.se", RoleName = "Student" };
+                var user4 = new ApplicationUser { FirstName = "Didi", LastName = "Kat", Email = "didi@lexicon.se", RoleName = "Student" };
+                var user5 = new ApplicationUser { FirstName = "Josiane", LastName = "Muke", Email = "muke@lexicon.se", RoleName = "Teacher" };
 
                 var result = userManager.Create(user, "lexico");
                 if (!result.Succeeded)
@@ -79,20 +84,20 @@ namespace LearningManagementSystem.Migrations
 
 
 
-            //var users= new[] {
-            //    new ApplicationUser { FirstName = "Yvette", LastName = "Kamariza", Email = "yv1@lexicon.se"},
-            //    new ApplicationUser { FirstName = "Jeanine", LastName = "Keza", Email = "jeanine@lexicon.se"},
-            //    new ApplicationUser { FirstName = "Colette", LastName = "Munezero", Email = "cole@lexicon.se"},
-            //    new ApplicationUser { FirstName = "Carine", LastName = "Anders", Email = "carine@lexicon.se"},
-            //    new ApplicationUser { FirstName = "Yvan", LastName = "Carlsson", Email = "yv12@lexicon.se"},
-            //    new ApplicationUser { FirstName = "Dan", LastName = "Nicksson", Email = "nick@lexicon.se"},
-            //    new ApplicationUser { FirstName = "dada", LastName = "Muhimpundu", Email = "dada@lexicon.se"},
-                
-            //     };
-          
-            //context.Users.AddOrUpdate(s => s.Email, users);
+            var courses = new[] {
+                new Course { Name = "Php", Description = "fundementals", StartDate = "yv1@lexicon.se"},
+                //new ApplicationUser { FirstName = "Jeanine", LastName = "Keza", Email = "jeanine@lexicon.se"},
+                //new ApplicationUser { FirstName = "Colette", LastName = "Munezero", Email = "cole@lexicon.se"},
+                //new ApplicationUser { FirstName = "Carine", LastName = "Anders", Email = "carine@lexicon.se"},
+                //new ApplicationUser { FirstName = "Yvan", LastName = "Carlsson", Email = "yv12@lexicon.se"},
+                //new ApplicationUser { FirstName = "Dan", LastName = "Nicksson", Email = "nick@lexicon.se"},
+                //new ApplicationUser { FirstName = "dada", LastName = "Muhimpundu", Email = "dada@lexicon.se"},
 
-            //context.SaveChanges();
+                 };
+
+            context.Users.AddOrUpdate(s => s.Email, users);
+
+            context.SaveChanges();
 
         }
 
