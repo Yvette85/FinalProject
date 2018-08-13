@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201808131304264_deleteddatabase5.Designer.cs">
       <DependentUpon>201808131304264_deleteddatabase5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808131412419_mergeAmer.cs" />
+    <Compile Include="Migrations\201808131412419_mergeAmer.Designer.cs">
+      <DependentUpon>201808131412419_mergeAmer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddStudentViewModel.cs" />
@@ -228,6 +232,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\logo-lexicon_2x.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -323,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808131304264_deleteddatabase5.resx">
       <DependentUpon>201808131304264_deleteddatabase5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808131412419_mergeAmer.resx">
+      <DependentUpon>201808131412419_mergeAmer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

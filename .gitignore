@@ -274,3 +274,6 @@ __pycache__/
 /LearningManagementSystem/Migrations/201808131234485_deleteddatabase4.resx
 /LearningManagementSystem/Migrations/201808131234485_deleteddatabase4.Designer.cs
 /LearningManagementSystem/Migrations/201808131234485_deleteddatabase4.cs
+/LearningManagementSystem/Migrations/201808131412419_mergeAmer.resx
+/LearningManagementSystem/Migrations/201808131412419_mergeAmer.Designer.cs
+/LearningManagementSystem/Migrations/201808131412419_mergeAmer.cs

@@ -54,12 +54,12 @@ namespace LearningManagementSystem.Controllers
             {
                 var user = new ApplicationUser()
                 {
-                    
                     FirstName = applicationUser.FirstName,
                     LastName = applicationUser.LastName,
                     Email = applicationUser.Email,
                     CourseId = applicationUser.CourseId,
                     UserName = applicationUser.Email,
+                    
                 };
                 db.Users.Add(user);
                 db.SaveChanges();

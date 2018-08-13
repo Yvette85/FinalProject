@@ -8,7 +8,7 @@ namespace LearningManagementSystem.Models
 {
     public class AddStudentViewModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 
@@ -33,6 +33,9 @@ namespace LearningManagementSystem.Models
 
         public int? CourseId { get; set; }
 
+        public string UserName { get; set; }
+
+        
        // public virtual ApplicationUser Students { get; set; }
     }
 }
