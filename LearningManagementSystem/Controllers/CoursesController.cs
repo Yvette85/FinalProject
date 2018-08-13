@@ -10,8 +10,11 @@ using LearningManagementSystem.Models;
 using LearningManagementSystem.Models.ViewModels;
 
 namespace LearningManagementSystem.Controllers
+
 {
+    [Authorize]
     public class CoursesController : Controller
+
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationDbContext context = new ApplicationDbContext();
@@ -115,16 +118,24 @@ namespace LearningManagementSystem.Controllers
             }
             return View(course);
         }
+        [Authorize]
+
 
         // GET: Courses/Create
+        [Authorize(Roles="Teacher")]
         public ActionResult Create()
         {
             return View();
         }
+        //public ActionResult Create(RegisterStudent register)
+        //{
+        //    return View();
+        //}
 
         // POST: Courses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Teacher")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,StartDate")] Course course)
@@ -139,7 +150,14 @@ namespace LearningManagementSystem.Controllers
             return View(course);
         }
 
+
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
+
         // GET: Courses/Edit/5
+        [Authorize(Roles = "Teacher")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -203,6 +221,11 @@ namespace LearningManagementSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Welcome()
+        {
+            return View();
         }
     }
 }

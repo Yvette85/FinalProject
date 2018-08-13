@@ -1,4 +1,4 @@
-﻿@model LearningManagementSystem.Models.Course
+﻿@model LearningManagementSystem.Models.Module
 
 @{
     ViewBag.Title = "Details";
@@ -7,9 +7,17 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Course</h4>
+    <h4>Module</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.Name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -27,25 +35,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
+            @Html.DisplayNameFor(model => model.Start_Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StartDate)
+            @Html.DisplayFor(model => model.Start_Date)
         </dd>
-        
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Modules)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date)
         </dt>
+
         <dd>
-            @Html.DisplayFor(model => model.Modules)
-        </dd>*@
+            @Html.DisplayFor(model => model.End_Date)
+        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ModuleId }) |
     @Html.ActionLink("Back to List", "Index")
-    @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = Model.Id })
- 
 </p>

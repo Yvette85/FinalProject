@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LearningManagementSystem.Models.Module>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create a New Module", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_Date)
+        </td>
+        <td>
+            <button>
+                @Html.ActionLink("Add Activity", "Create", "Activities", " ", new { id = item.ModuleId })
+            </button> |
+            @Html.ActionLink("Edit", "Edit", new { id = item.ModuleId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ModuleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId })
+        </td>
+    </tr>
+}
+
+</table>
