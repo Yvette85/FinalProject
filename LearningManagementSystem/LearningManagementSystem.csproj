@@ -199,9 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808090902025_appliuserdisplay5.cs" />
-    <Compile Include="Migrations\201808090902025_appliuserdisplay5.Designer.cs">
-      <DependentUpon>201808090902025_appliuserdisplay5.cs</DependentUpon>
+    <Compile Include="Migrations\201808100729358_morning2.cs" />
+    <Compile Include="Migrations\201808100729358_morning2.Designer.cs">
+      <DependentUpon>201808100729358_morning2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -310,8 +310,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808090902025_appliuserdisplay5.resx">
-      <DependentUpon>201808090902025_appliuserdisplay5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808100729358_morning2.resx">
+      <DependentUpon>201808100729358_morning2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

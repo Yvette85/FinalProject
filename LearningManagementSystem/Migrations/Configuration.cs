@@ -66,7 +66,7 @@ namespace LearningManagementSystem.Migrations
             var userManager = new ApplicationUserManager(userStore);
 
 
-            var studs = new[] {new ApplicationUser {FirstName = "Erik", LastName = "Eriksson", Email = "Erik@lexicon.se", CourseId = 1, UserName ="Erik@lexicon.se" },
+            var studs = new[] {new ApplicationUser {FirstName = "Erik", LastName = "Eriksson", Email = "Erik@lexicon.se", CourseId = 1, UserName ="Erik@lexicon.se", },
                                new ApplicationUser {FirstName = "Fredrik", LastName = "Fredriksson", Email = "Fredrik@lexicon.se", CourseId = 1, UserName = "Fredrik@lexicon.se" },
                                new ApplicationUser {FirstName = "David", LastName ="Davidsson", Email ="David@lexicon.se", CourseId =1, UserName ="David@lexicon.se" },
                                new ApplicationUser {FirstName = "Ahmed", LastName ="Gazawi", Email ="Ahmed@lexicon.se", CourseId=1, UserName ="Ahmed@lexicon.se"},
@@ -87,8 +87,8 @@ namespace LearningManagementSystem.Migrations
                 }
             }
 
-            context.Users.AddOrUpdate(u => u.UserName, studs);
-            context.SaveChanges();
+            //context.Users.AddOrUpdate(u => u.UserName, studs);
+            //context.SaveChanges();
 
 
             var roleStore = new RoleStore<IdentityRole>(context);
