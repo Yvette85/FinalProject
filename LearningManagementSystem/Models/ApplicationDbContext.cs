@@ -14,6 +14,7 @@ namespace LearningManagementSystem.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
 
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public ApplicationDbContext()
             : base("LMSayjob", throwIfV1Schema: false)
@@ -25,6 +26,5 @@ namespace LearningManagementSystem.Models
             return new ApplicationDbContext();
         }
 
-       
     }
 }
