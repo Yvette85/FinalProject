@@ -22,3 +22,44 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Override bootstrap */
+.navbar-inverse {
+	background-color: #428bca;
+	border-color: #428bca;
+}
+
+.navbar-inverse .navbar-nav > li > a 
+{
+	color: #f9f9f9;
+}
+
+	.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+		color: #000000;
+		background-color: transparent;
+		background-color: #a5c6f58c;
+	}
+
+
+
+.navbar-nav > li > a {
+	padding-top: 22px;
+	padding-bottom: 23px;
+}
+
+.form-control 
+{
+	border-radius: 10px;
+}
+
+.btn-default {
+	color: #f9f9f9;
+	background-color: #428bca;
+	border-color: #f9f9f9;
+}
+
+.btn {
+	font-size: 19px;
+	padding: 8px 23px;
+	border-radius: 15px;
+}
