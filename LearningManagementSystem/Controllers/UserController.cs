@@ -5,10 +5,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,57 +18,30 @@ namespace LearningManagementSystem.Controllers
 
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
-        [Authorize(Roles = "Teacher")]
+
         public ActionResult Index()
         {
-            var viewModel = new RegisterViewModel();
 
-            //viewModel.users = context.Users.ToList();
+            List<ApplicationUser> studIndex = new List<ApplicationUser>();
 
-
-            List<UserViewModel> rv = new List<UserViewModel>();
-            RegisterViewModel model = new RegisterViewModel();
-            
-            
-            foreach ( var u  in context.Users.ToList())
+            foreach (var s in studIndex)
             {
-                rv.Add(new UserViewModel (u));
+
+                studIndex.Add(new ApplicationUser()
+                {
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    CourseId = s.CourseId,
+                    Email = s.Email,
+
+                });
+
+                return RedirectToAction("Index");
+
             }
-       
-          
 
-            //var User = userManager.FindByName(model.Email);
-            //userManager.AddToRole(User.Id, Role.Name);
-
-            return View(rv);
-
-         
+            return View(context.Users.ToList());
         }
-
-
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = context.Users.Find(id);
-
-
-
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-
-          DetailsViewModel dv = new DetailsViewModel (user);
-
-            return View(dv);
-        }
-
-
-
-
 
 
 
@@ -84,7 +55,7 @@ namespace LearningManagementSystem.Controllers
 
             var viewModel = new RegisterViewModel();
 
-           
+
             viewModel.Roles = context.Roles.ToList();
             viewModel.Courses = context.Courses.ToList();
 
@@ -92,7 +63,7 @@ namespace LearningManagementSystem.Controllers
         }
 
 
-       
+
 
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
@@ -110,19 +81,23 @@ namespace LearningManagementSystem.Controllers
 
                 var courses = context.Courses.ToList();
 
-                var user = new ApplicationUser { Email = model.Email ,UserName = model.Email,
+                var user = new ApplicationUser
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName ,
-                   CourseId = model.CourseId};
+                    LastName = model.LastName,
+                    CourseId = Convert.ToInt32(model.CourseId)
+                };
 
 
 
-                var identityResult = userManager.Create( user, model.Password);
-                
+                var identityResult = userManager.Create(user, model.Password);
+
                 //(new IdentityUser (model.Email), model.Password);
 
 
-          
+
 
 
 
@@ -161,20 +136,20 @@ namespace LearningManagementSystem.Controllers
 
                     //context.Users.Add(user);
                     //context.SaveChanges();
-             
+
 
                     return RedirectToAction("Index", "Home");
                 }
 
 
-                
-                  
+
+
 
 
 
                 ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
 
-                
+
             }
 
             model.Courses = context.Courses.ToList();
@@ -189,7 +164,7 @@ namespace LearningManagementSystem.Controllers
 
 
 
-        public ActionResult Edit( string id)
+        public ActionResult Edit(string id)
         {
 
 
@@ -207,7 +182,7 @@ namespace LearningManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-           
+
 
             return View(ev);
         }
@@ -236,16 +211,3 @@ namespace LearningManagementSystem.Controllers
         }
     }
 }
-
-//public async Task<ActionResult> Register(RegisterViewModel model)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-
-//        var result = await UserManager.CreateAsync(user, model.Password);
-
-
-
-//        if (result.Succeeded)
-//        {

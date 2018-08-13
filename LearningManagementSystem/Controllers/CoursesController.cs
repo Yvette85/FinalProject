@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LearningManagementSystem.Models;
-using LearningManagementSystem.Models.ViewModels;
 
 namespace LearningManagementSystem.Controllers
 
@@ -17,92 +16,12 @@ namespace LearningManagementSystem.Controllers
 
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        private ApplicationDbContext context = new ApplicationDbContext();
 
         // GET: Courses
-        public ActionResult IndexHistory()
-        {
-            
-            
-            return View(db.Courses.ToList());
-        }
-
-
         public ActionResult Index()
         {
-            List<IndexCourse> course = new List<IndexCourse>();
-            foreach (var s in context.Courses.ToList())
-            {
-               course.Add(new IndexCourse()
-                {
-                   Id = s.Id,
-                   Name = s.Name,
-                   StartDate =s.StartDate,
-                   Description = s.Description,
-                   
-            
-                });
-            }
-            IndexCourseViewModel ic = new IndexCourseViewModel();
-
-           ic.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
-
-            return View(ic);
-          
+            return View(db.Courses.ToList());
         }
-
-
-
-
-        //        List<IndexCourse> course = new List<IndexCourse>();
-        //            foreach (var g in db.Courses.ToList())
-        //            {
-        //                course.Add(new IndexCourse()
-        //        {
-        //            Id = g.Id,
-        //                    Name = g.Name,
-        //                    StartDate = g.StartDate,
-        //                    Description = g.Description,
-
-
-
-        //                });
-        //            }
-
-        //    IndexCourseViewModel coursemodel = new IndexCourseViewModel();
-        //    coursemodel.Courses = course.Where(x => x.StartDate > DateTime.Now).ToList();
-
-        //            return View(coursemodel);
-        //}
-
-
-
-
-        //public ActionResult Index()
-        //{
-        //    var viewModel = new RegisterViewModel();
-
-        //    //viewModel.users = context.Users.ToList();
-
-
-        //    List<StudentViewModel> rv = new List<StudentViewModel>();
-        //    RegisterViewModel model = new RegisterViewModel();
-
-
-        //    foreach (var u in context.Users.ToList())
-        //    {
-        //        rv.Add(new StudentViewModel(u));
-        //    }
-
-        //    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
-        //    viewModel.Roles = context.Roles.ToList();
-
-        //    //var User = userManager.FindByName(model.Email);
-        //    //userManager.AddToRole(User.Id, Role.Name);
-
-        //    return View(rv);
-
-
 
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
@@ -122,7 +41,7 @@ namespace LearningManagementSystem.Controllers
 
 
         // GET: Courses/Create
-        [Authorize(Roles="Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult Create()
         {
             return View();

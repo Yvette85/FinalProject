@@ -22,7 +22,7 @@ namespace LearningManagementSystem.Models.ViewModels
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-            CourseName = u.CourseId;
+            CourseName = Convert.ToString(u.CourseId);
           
 
         }
