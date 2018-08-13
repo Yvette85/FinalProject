@@ -265,3 +265,6 @@ __pycache__/
 /LearningManagementSystem/Migrations/201808100729358_morning2.resx
 /LearningManagementSystem/Migrations/201808100729358_morning2.Designer.cs
 /LearningManagementSystem/Migrations/201808100729358_morning2.cs
+/LearningManagementSystem/Migrations/201808130909527_Init.resx
+/LearningManagementSystem/Migrations/201808130909527_Init.Designer.cs
+/LearningManagementSystem/Migrations/201808130909527_Init.cs
