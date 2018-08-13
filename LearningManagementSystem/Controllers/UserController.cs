@@ -160,7 +160,25 @@ namespace LearningManagementSystem.Controllers
 
         }
 
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
 
+
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            DetailsViewModel dv = new DetailsViewModel(user);
+
+            return View(dv);
+        }
 
 
 
@@ -188,7 +206,6 @@ namespace LearningManagementSystem.Controllers
         }
 
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]EditViewModel editv)
@@ -208,6 +225,49 @@ namespace LearningManagementSystem.Controllers
                 return RedirectToAction("Index");
             }
             return View(editv);
+
+
         }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+     
+            ApplicationUser user = context.Users.Find(id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+                        
+
+            return View(user);
+        }
+
+        
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            ApplicationUser user = context.Users.Find(id);
+            context.Users.Remove(user);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                context.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+          
     }
 }
