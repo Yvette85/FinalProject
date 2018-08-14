@@ -24,7 +24,7 @@ namespace LearningManagementSystem.Models
 
         public int CourseId { get; set; }
 
-        public List<Course> Courses { get; set; }
+       // public List<Course> Courses { get; set; }
 
 
 
