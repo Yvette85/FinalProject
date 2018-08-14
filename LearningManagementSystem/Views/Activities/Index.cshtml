@@ -7,9 +7,10 @@
 <br/>
 <br/>
 
-<p>
-    @Html.ActionLink("Create New Activity", "Create")
-</p>
+<div class="form-group">
+
+	@Html.ActionLink("Create Activity ", "Create", "Activites", new { @class = "btn btn-primary" })
+</div>
 <table class="table">
     <tr>
         <th>
@@ -62,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.End_Time)
             </td>
             <td>
-                <div id="tech">
+                
                     @if (User.IsInRole("Teacher"))
                     {
 
@@ -79,7 +80,7 @@
                             </li>
                         </ul>
                     }
-                </div>
+                
             </td>
         </tr>
     }
