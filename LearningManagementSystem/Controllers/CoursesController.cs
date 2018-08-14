@@ -37,9 +37,9 @@ namespace LearningManagementSystem.Controllers
             }
             return View(course);
         }
+
+
         [Authorize]
-
-
         // GET: Courses/Create
         [Authorize(Roles = "Teacher")]
         public ActionResult Create()
@@ -68,7 +68,6 @@ namespace LearningManagementSystem.Controllers
 
             return View(course);
         }
-
 
         //public ActionResult Register()
         //{

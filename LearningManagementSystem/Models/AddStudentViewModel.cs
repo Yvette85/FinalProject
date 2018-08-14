@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LearningManagementSystem.Models
 {
-    public class AddStudentViewModel
+    public class AddStudentViewModel 
     {
         public string Id { get; set; }
 
@@ -35,7 +35,8 @@ namespace LearningManagementSystem.Models
 
         public string UserName { get; set; }
 
-        
+
+                
        // public virtual ApplicationUser Students { get; set; }
     }
 }

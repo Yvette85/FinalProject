@@ -60,6 +60,7 @@ namespace LearningManagementSystem.Controllers
                     CourseId = applicationUser.CourseId,
                     UserName = applicationUser.Email,
                     
+                    
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
