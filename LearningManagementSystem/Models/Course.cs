@@ -22,10 +22,10 @@ namespace LearningManagementSystem.Models
         public DateTime StartDate { get; set; }
 
 
-      
         public virtual ICollection<ApplicationUser> Students { get; set; }
 
         public virtual ICollection<Module> Modules { get; set; }
+
     }
 }
 
