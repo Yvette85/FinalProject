@@ -37,12 +37,7 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                <button>
-                    @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = item.Id })
-                </button> 
-                <button>
-                    @Html.ActionLink("Add Student", "Register", "User", " ", new { id = item.Id })
-                </button> 
+               
                 <ul>
                     @if (User.IsInRole("Teacher"))
                     {
