@@ -7,11 +7,15 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Activity", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Module.Course.Name)
+        </th>
+            <th>
+               
             @Html.DisplayNameFor(model => model.Module.Name)
         </th>
         <th>
@@ -34,6 +38,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Module.Course.Name)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Module.Name)
         </td>

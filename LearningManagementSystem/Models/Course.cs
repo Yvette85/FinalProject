@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,19 +12,13 @@ namespace LearningManagementSystem.Models
         public int Id { get; set; }
 
         [Required]
-        [DisplayName("CourseName")]
-
+        [Display(Name="Course Name")]
         public string Name { get; set; }
 
         [Required]
         [StringLength(255)]
         public string Description { get; set; }
-
-
-        [Display(Name = "Start Date")]
-        [Required(ErrorMessage = "Please enter a start date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Display(Name="Start Date")]
         public DateTime StartDate { get; set; }
 
 
@@ -35,5 +28,4 @@ namespace LearningManagementSystem.Models
     }
 }
 
-//var isValid = DateTime.TryParseExact(Convert.ToString(value),
-//               "yyyy-mm-dd",
+  

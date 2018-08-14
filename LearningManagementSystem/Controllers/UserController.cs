@@ -1,10 +1,12 @@
 ﻿using LearningManagementSystem.Models;
+using LearningManagementSystem.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,20 +14,36 @@ namespace LearningManagementSystem.Controllers
 {
     public class UserController : Controller
     {
+        private ApplicationDbContext context = new ApplicationDbContext();
+
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
-    
-            public ActionResult Index()
+
+        public ActionResult Index()
         {
 
-            
-            return View();
+            List<ApplicationUser> studIndex = new List<ApplicationUser>();
+
+            foreach (var s in studIndex)
+            {
+
+                studIndex.Add(new ApplicationUser()
+                {
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    CourseId = s.CourseId,
+                    Email = s.Email,
+
+                });
+
+                return RedirectToAction("Index");
+
+            }
+
+            return View(context.Users.ToList());
         }
 
 
-        //var park = db.Members.ToList();
-        ////var parkedVehicle = db.vehicles.ToList();
-        //return View(db.Members.ToList());
 
         // GET: User
 
@@ -33,36 +51,163 @@ namespace LearningManagementSystem.Controllers
         public ActionResult Register()
         {
 
-            ApplicationDbContext context = new ApplicationDbContext();
+            // ApplicationDbContext context = new ApplicationDbContext();
 
             var viewModel = new RegisterViewModel();
-             
+
+
             viewModel.Roles = context.Roles.ToList();
             viewModel.Courses = context.Courses.ToList();
 
             return View(viewModel);
         }
 
+
+
+
         [HttpPost]
-        public ActionResult Register( RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
-            var userStore = new UserStore<IdentityUser>();
-            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+            var userStore = new UserStore<ApplicationUser>(context);
 
-            var identityResult=  userManager.Create ( new IdentityUser( model.Email),  model.Password);
 
-            if (identityResult.Succeeded)
+            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
+
+
+
+
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Home");
+
+                var courses = context.Courses.ToList();
+
+                var user = new ApplicationUser
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    CourseId = Convert.ToInt32(model.CourseId)
+                };
+
+
+
+                var identityResult = userManager.Create(user, model.Password);
+
+                //(new IdentityUser (model.Email), model.Password);
+
+
+
+
+
+
+                if (identityResult.Succeeded)
+                {
+                    //userManager.AddToRole(user.Id, "Student");
+
+
+                    //var roleStore = new RoleStore<IdentityRole>(context);
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+
+
+                    //var roleNames = new[] { "Teacher", "Student" };
+                    //foreach (var roleName in roleNames)
+                    //{
+                    //    if (context.Roles.Any(r => r.Name == roleName)) continue;
+
+                    //    var role = new IdentityRole { Name = roleName };
+                    //    var result = roleManager.Create(role);
+                    //    if (!result.Succeeded)
+                    //    {
+                    //        throw new Exception(string.Join("\n", result.Errors));
+                    //    }
+                    //}
+                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+
+                    var User = userManager.FindByName(model.Email);
+                    //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
+                    userManager.AddToRole(User.Id, Role.Name);
+
+                    //context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+
+
+
+
+                    //context.Users.Add(user);
+                    //context.SaveChanges();
+
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+
+
+
+
+
+
+                ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
+
+
             }
 
-            ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
+            model.Courses = context.Courses.ToList();
+
+            model.Roles = context.Roles.ToList();
 
             return View(model);
+
         }
 
+
+
+
+
+        public ActionResult Edit(string id)
+        {
+
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = context.Users.Find(id);
+
+            EditViewModel ev = new EditViewModel(user);
+
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+
+
+            return View(ev);
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")]EditViewModel editv)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var uv = context.Users.FirstOrDefault(x => x.Id == editv.Id);
+                uv.FirstName = editv.FirstName;
+                uv.LastName = editv.LastName;
+                uv.Email = editv.Email;
+
+
+
+                //context.Entry(editv).State = EntityState.Modified;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(editv);
+        }
     }
 }
-
-
-//[Bind(Include = "RegNum,Color,Brand,Model,NumberOfWheels,ParkedTime, MemberId,VehicleTypesId")] Park park

@@ -26,6 +26,7 @@ namespace LearningManagementSystem.Controllers
             SignInManager = signInManager;
         }
 
+
         public ApplicationSignInManager SignInManager
         {
             get

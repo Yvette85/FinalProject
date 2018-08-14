@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LearningManagementSystem.Models
+namespace LearningManagementSystem.Models.ViewModels
 {
     public class IndexCourseViewModel
     {
-        public List<IndexCourse> Courses { get; set; }
-        public List<IndexModule> Modules { get; set; }
-        
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public List<IndexCourse> Courses{ get; set; }
     }
 }

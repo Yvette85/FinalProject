@@ -25,5 +25,6 @@ namespace LearningManagementSystem.Models
             return new ApplicationDbContext();
         }
 
+       
     }
 }
