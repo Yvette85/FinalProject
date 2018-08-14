@@ -22,22 +22,35 @@
 					</button>*@
 					@*@Html.ActionLink("Lexicon", "welcome", "Courses", null , new { @class = "navbar-brand" })*@
 			</div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Create Course", "Create", "Courses")</li>
-                    <li>@Html.ActionLink("View Courses", "Index", "Courses")</li>
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>@Html.ActionLink("Create Course", "Create", "Courses")</li>
+							<li>@Html.ActionLink("View Courses", "Index", "Courses")</li>
 
-                    <li>@Html.ActionLink("View Modules", "Index", "Modules")</li>
+							<li>@Html.ActionLink("View Modules", "Index", "Modules")</li>
 
-                    <li>@Html.ActionLink("View Activities", "Index", "Activities")</li>
-                    @*<li>@Html.ActionLink("Create Activity", "Create", "Activities")</li>*@
-                    <li>@Html.ActionLink("View Students", "Index", "User")</li>
+							<li>@Html.ActionLink("View Activities", "Index", "Activities")</li>
 
-                    <li>@Html.ActionLink("Register Teacher?", "Register", "User")</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Register<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							@*<li>@Html.ActionLink("Create Activity", "Create", "Activities")</li>*@
+							<li>@Html.ActionLink("View Students", "Index", "User")</li>
 
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+							<li>@Html.ActionLink("Register Teacher?", "Register", "User")</li>
+
+						</ul>
+					</li>
+
+				</ul>
+						@Html.Partial("_LoginPartial")
+</div>
         </div>
     </div>
     <div class="container body-content">
