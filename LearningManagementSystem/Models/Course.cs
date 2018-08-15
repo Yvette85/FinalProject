@@ -24,6 +24,7 @@ namespace LearningManagementSystem.Models
 
         public virtual ICollection<ApplicationUser> Students { get; set; }
 
+        public virtual ICollection<Module> Modules { get; set; }
 
     }
 }
