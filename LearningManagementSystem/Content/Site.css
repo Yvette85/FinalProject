@@ -37,7 +37,7 @@ textarea {
 	.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 		color: #000000;
 		background-color: transparent;
-		background-color: #a5c6f58c;
+		background-color: #a5c6f5;
 	}
 
 
@@ -82,12 +82,18 @@ textarea {
 .dropdown-menu {
 	background-color: #428bca;
 	border-radius: 10px;
-	padding: 0px 0px;
+	/*padding: 0px 0px;*/
 }
 
 	.dropdown-menu > li > a:hover,
 	.dropdown-menu > li > a:focus {
 		color: #333333;
 		text-decoration: none;
-		background-color: #a5c6f58c;
+		background-color: #a5c6f5;
 	}
+
+body {
+	font-size: 16px;
+}
+
+

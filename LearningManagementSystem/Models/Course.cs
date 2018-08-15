@@ -26,7 +26,6 @@ namespace LearningManagementSystem.Models
 
         public virtual ICollection<Module> Modules { get; set; }
 
-
     }
 }
 
