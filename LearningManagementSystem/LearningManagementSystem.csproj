@@ -199,9 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808130909527_Init.cs" />
-    <Compile Include="Migrations\201808130909527_Init.Designer.cs">
-      <DependentUpon>201808130909527_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201808141434171_Init.cs" />
+    <Compile Include="Migrations\201808141434171_Init.Designer.cs">
+      <DependentUpon>201808141434171_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -227,6 +227,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\LMS.jpg" />
     <Content Include="Img\logo-lexicon_2x.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -317,8 +318,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808130909527_Init.resx">
-      <DependentUpon>201808130909527_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808141434171_Init.resx">
+      <DependentUpon>201808141434171_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
