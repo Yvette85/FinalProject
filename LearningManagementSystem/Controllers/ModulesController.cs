@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LearningManagementSystem.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LearningManagementSystem.Controllers
 {
@@ -39,10 +40,22 @@ namespace LearningManagementSystem.Controllers
 
         // GET: Modules/Create
         [Authorize(Roles = "Teacher")]
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
+            var Co = db.Courses.Where(c => c.Id == id).ToList();
+            
+            ViewBag.CourseId = new SelectList(Co, "Id", "Name");
+            
+            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
             return View();
+
+
+            //var ViewModel = ModuleFormViewModel
+            //    {
+            //    Courses = db.Courses.ToList();
+
+            //    }
+            //return View(ViewModel)
         }
 
         // POST: Modules/Create
@@ -53,6 +66,7 @@ namespace LearningManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ModuleId,Name,Description,Start_Date,End_Date,CourseId")] Module module)
         {
+         
             if (ModelState.IsValid)
             {
                 db.Modules.Add(module);
@@ -134,3 +148,9 @@ namespace LearningManagementSystem.Controllers
         }
     }
 }
+
+
+
+
+
+

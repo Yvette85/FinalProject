@@ -69,27 +69,28 @@
 
                 @*<div id="tech">*@
                     @if (User.IsInRole("Teacher"))
-        {
+                    {
 
-            <ul>
+                <ul>
 
-                <li>
+                    <li>
 
-                    @Html.ActionLink("Add Module", "Create", "Modules", " ", new { id = item.Id })
-                </li>
-                <li>
+                        @Html.ActionLink("Add Module", "Create", "Modules", new { id = item.Id }, null)
+                    </li>
+                   
+                    <li>
 
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                </li>
-                <li>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                </li>
-                <li>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 
-                </li>
-            </ul>
-}
+                    </li>
+                </ul>
+                    }
                 @*</div>*@
             </td>
 

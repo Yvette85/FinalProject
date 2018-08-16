@@ -39,9 +39,13 @@ namespace LearningManagementSystem.Controllers
 
         // GET: Activities/Create
         [Authorize(Roles = "Teacher")]
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.ModuleId = new SelectList(db.Modules, "ModuleId", "Name");
+
+            var dida = db.Modules.Where(d => d.ModuleId == id).ToList();
+            ViewBag.ModuleId = new SelectList(dida, "ModuleId", "Name");
+                        
+            //ViewBag.ModuleId = new SelectList(db.Modules, "ModuleId", "Name");
             return View();
         }
 

@@ -18,17 +18,17 @@ namespace LearningManagementSystem.Models
 
 
         [Display(Name ="Start Time")]
-        [Required(ErrorMessage = "Please enter a start date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "Please enter a start Time")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:MM}")]
         public DateTime Start_Time { get; set; }
 
 
 
         [Display(Name="End Time")]
-        [Required(ErrorMessage = "Please enter a start date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "Please enter a End Time")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:MM}")]
         public DateTime End_Time { get; set; }
 
 
