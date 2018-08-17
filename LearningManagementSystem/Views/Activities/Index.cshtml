@@ -4,18 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br/>
+<br/>
 
-<p>
-    @Html.ActionLink("Create New Activity", "Create")
-</p>
+<div class="form-group">
+
+	@Html.ActionLink("Create Activity ", "Create", "Activites", new { @class = "btn btn-primary" })
+</div>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Module.Course.Name)
         </th>
-            <th>
-               
+        <th>
+
             @Html.DisplayNameFor(model => model.Module.Name)
         </th>
         <th>
@@ -36,35 +38,51 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Module.Course.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Module.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_Time)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Module.Course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Module.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_Time)
+            </td>
+            <td>
+                
+                    @if (User.IsInRole("Teacher"))
+                    {
+
+                        <ul>
+                            <li>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ActivityId })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Details", "Details", new { id = item.ActivityId })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ActivityId })
+
+                            </li>
+                        </ul>
+                    }
+                
+            </td>
+        </tr>
+    }
 
 </table>

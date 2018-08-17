@@ -14,9 +14,21 @@ namespace LearningManagementSystem.Models
         [Display(Name="Module Name")]
         public string Name { get; set; }
         public string Description { get; set; }
+
+
+
         [Display(Name ="Start Date")]
+        [Required(ErrorMessage = "Please enter a start date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Start_Date { get; set; }
+
+
+
         [Display(Name ="End Date")]
+        [Required(ErrorMessage = "Please enter a start date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime End_Date { get; set; }
 
 
@@ -24,7 +36,7 @@ namespace LearningManagementSystem.Models
 
         public int CourseId { get; set; }
 
-        public List<Course> Courses { get; set; }
+        //public List<Course> Courses { get; set; }
 
 
 

@@ -4,11 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create a New Module", "Create")
-</p>
+<br/>
+<br/>
+
+<div class="form-group">
+
+	@Html.ActionLink("Create Module ", "Create", "Modules", new { @class = "btn btn-primary" })
+</div>
+@*<p>
+    @Html.ActionLink("Create a New Module", "Modules")
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -29,32 +35,51 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_Date)
-        </td>
-        <td>
-            <button>
-                @Html.ActionLink("Add Activity", "Create", "Activities", " ", new { id = item.ModuleId })
-            </button> |
-            @Html.ActionLink("Edit", "Edit", new { id = item.ModuleId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ModuleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_Date)
+            </td>
+            <td>
+                <div id="tech">
+                    @if (User.IsInRole("Teacher"))
+                    {
+
+                        <ul>
+
+                            <li>
+
+                                @Html.ActionLink("Add Activity", "Create", "Activities", " ", new { id = item.ModuleId })
+                            </li>
+                            <li>
+
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ModuleId })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Details", "Details", new { id = item.ModuleId })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId })
+
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>
