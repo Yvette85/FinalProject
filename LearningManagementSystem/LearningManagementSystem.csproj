@@ -213,6 +213,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\ViewModels\StudIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
