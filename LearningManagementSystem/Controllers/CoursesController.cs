@@ -57,7 +57,7 @@ namespace LearningManagementSystem.Controllers
         [Authorize(Roles = "Teacher")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,StartDate")] Course course)
+        public ActionResult Create([Bind(Include ="Id,Name,Description,StartDate")] Course course)
         {
             if (ModelState.IsValid)
             {

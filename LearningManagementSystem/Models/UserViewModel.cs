@@ -8,9 +8,9 @@ namespace LearningManagementSystem.Models.ViewModels
     public class UserViewModel
     {
 
-  
-     
-            public ApplicationUser u;
+
+
+        public ApplicationUser u;
 
         public UserViewModel()
         {
@@ -23,7 +23,7 @@ namespace LearningManagementSystem.Models.ViewModels
             LastName = u.LastName;
             Email = u.Email;
             CourseName = Convert.ToString(u.CourseId);
-          
+
 
         }
 
@@ -34,7 +34,7 @@ namespace LearningManagementSystem.Models.ViewModels
         public string LastName { get; set; }
         public string Email { get; set; }
         public string CourseName { get; set; }
- 
+
 
     }
 

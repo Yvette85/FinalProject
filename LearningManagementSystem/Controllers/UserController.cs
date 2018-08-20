@@ -18,32 +18,34 @@ namespace LearningManagementSystem.Controllers
 
         public UserManager<IdentityUser> userManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
+  
 
-        public ActionResult Index()
+        public ActionResult Index(int? CourseId)
         {
+            List<ApplicationUser> studIndex = new List<ApplicationUser>();         
+            
 
-            List<ApplicationUser> studIndex = new List<ApplicationUser>();
-
-            foreach (var s in studIndex)
-            {
-
-                studIndex.Add(new ApplicationUser()
+                foreach (var s in studIndex)
                 {
-                    FirstName = s.FirstName,
-                    LastName = s.LastName,
-                    CourseId = s.CourseId,
-                    Email = s.Email,
 
-                });
+                    studIndex.Add(new ApplicationUser()
+                    {
+                        FirstName = s.FirstName,
+                        LastName = s.LastName,
+                        CourseId = s.CourseId,
+                        Email = s.Email,
+
+                    });              
+              
 
                 return RedirectToAction("Index");
-
             }
+            //CourseStudentViewModel studmodel = new CourseStudentViewModel();
+            //studmodel.Courses = studIndex.Where(x => x.CourseId == CourseId);
 
-            return View(context.Users.ToList()); //.Where(x=> x.CourseId));
+            return View(context.Users.ToList()); //.Where(x=> x.CourseId == CourseId));
         }
-
-
+        
 
         // GET: User
 
@@ -64,7 +66,6 @@ namespace LearningManagementSystem.Controllers
 
 
 
-
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
         {
@@ -72,9 +73,7 @@ namespace LearningManagementSystem.Controllers
 
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
-
-
-
+            
 
             if (ModelState.IsValid)
             {
@@ -96,10 +95,7 @@ namespace LearningManagementSystem.Controllers
 
                 //(new IdentityUser (model.Email), model.Password);
 
-
-
-
-
+                
 
                 if (identityResult.Succeeded)
                 {
@@ -112,12 +108,7 @@ namespace LearningManagementSystem.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-
-
-
-
-
-
+                
                 ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
 
 
@@ -130,9 +121,7 @@ namespace LearningManagementSystem.Controllers
             return View(model);
 
         }
-
-
-
+        
 
 
         public ActionResult Edit(string id)
