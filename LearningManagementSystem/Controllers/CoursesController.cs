@@ -129,6 +129,7 @@ namespace LearningManagementSystem.Controllers
         {
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
+         
             db.SaveChanges();
             return RedirectToAction("Index");
         }

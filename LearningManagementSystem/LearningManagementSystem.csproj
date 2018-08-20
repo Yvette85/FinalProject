@@ -203,10 +203,6 @@
     <Compile Include="Migrations\201808141332549_fu.Designer.cs">
       <DependentUpon>201808141332549_fu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808141358215_fu2.cs" />
-    <Compile Include="Migrations\201808141358215_fu2.Designer.cs">
-      <DependentUpon>201808141358215_fu2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -324,9 +320,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808141332549_fu.resx">
       <DependentUpon>201808141332549_fu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808141358215_fu2.resx">
-      <DependentUpon>201808141358215_fu2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -40,7 +40,7 @@ namespace LearningManagementSystem.Controllers
 
             }
 
-            return View(context.Users.ToList());
+            return View(context.Users.ToList()); //.Where(x=> x.CourseId));
         }
 
 
@@ -103,41 +103,12 @@ namespace LearningManagementSystem.Controllers
 
                 if (identityResult.Succeeded)
                 {
-                    //userManager.AddToRole(user.Id, "Student");
-
-
-                    //var roleStore = new RoleStore<IdentityRole>(context);
-                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
-
-
-
-                    //var roleNames = new[] { "Teacher", "Student" };
-                    //foreach (var roleName in roleNames)
-                    //{
-                    //    if (context.Roles.Any(r => r.Name == roleName)) continue;
-
-                    //    var role = new IdentityRole { Name = roleName };
-                    //    var result = roleManager.Create(role);
-                    //    if (!result.Succeeded)
-                    //    {
-                    //        throw new Exception(string.Join("\n", result.Errors));
-                    //    }
-                    //}
+                    
                     var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
 
                     var User = userManager.FindByName(model.Email);
-                    //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
-                    userManager.AddToRole(User.Id, Role.Name);
-
-                    //context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
-
-
-
-
-                    //context.Users.Add(user);
-                    //context.SaveChanges();
-
-
+                    userManager.AddToRole(User.Id, Role.Name);                
+                                                            
                     return RedirectToAction("Index", "Home");
                 }
 

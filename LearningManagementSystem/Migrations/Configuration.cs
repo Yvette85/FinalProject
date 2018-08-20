@@ -15,21 +15,9 @@ namespace LearningManagementSystem.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LearningManagementSystem.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
+            
             var courses = new[]
             {
                 new Course { Id=1, Name = ".Net", Description = "Fullstack course", StartDate = DateTime.Now.AddDays(10)},
@@ -109,14 +97,10 @@ namespace LearningManagementSystem.Migrations
             }
 
 
-
-
-
-
             var erikUser = userManager.FindByName("Erik@lexicon.se");
             userManager.AddToRole(erikUser.Id, "Student");
 
-            //context.Courses.FirstOrDefault
+           
 
             var davidUser = userManager.FindByName("David@lexicon.se");
             userManager.AddToRole(davidUser.Id, "Student");
@@ -138,16 +122,6 @@ namespace LearningManagementSystem.Migrations
 
             var teacherUser = userManager.FindByName("Teacher@lexicon.se");
             userManager.AddToRole(teacherUser.Id, "Teacher");
-
-
-            //var john = userManager.FindByName("john@lexicon.se");
-            //userManager.AddToRoles(john.Id, "Admin", "Editor");
-
-            //var users = new[]
-            //{
-            //    new ApplicationUser {}
-            //};
-
 
 
         }
