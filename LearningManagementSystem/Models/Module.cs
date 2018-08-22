@@ -20,7 +20,7 @@ namespace LearningManagementSystem.Models
         [Display(Name ="Start Date")]
         [Required(ErrorMessage = "Please enter a start date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Start_Date { get; set; }
 
 
@@ -28,7 +28,7 @@ namespace LearningManagementSystem.Models
         [Display(Name ="End Date")]
         [Required(ErrorMessage = "Please enter a End date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime End_Date { get; set; }
 
 

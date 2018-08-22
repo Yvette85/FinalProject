@@ -199,9 +199,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808161124452_updatedModule.cs" />
-    <Compile Include="Migrations\201808161124452_updatedModule.Designer.cs">
-      <DependentUpon>201808161124452_updatedModule.cs</DependentUpon>
+    <Compile Include="Migrations\201808211233329_test.cs" />
+    <Compile Include="Migrations\201808211233329_test.Designer.cs">
+      <DependentUpon>201808211233329_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211317168_q.cs" />
+    <Compile Include="Migrations\201808211317168_q.Designer.cs">
+      <DependentUpon>201808211317168_q.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -235,6 +239,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -318,8 +323,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808161124452_updatedModule.resx">
-      <DependentUpon>201808161124452_updatedModule.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808211233329_test.resx">
+      <DependentUpon>201808211233329_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211317168_q.resx">
+      <DependentUpon>201808211317168_q.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

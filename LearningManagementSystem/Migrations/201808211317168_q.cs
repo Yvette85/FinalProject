@@ -3,7 +3,7 @@ namespace LearningManagementSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class updatedModule : DbMigration
+    public partial class q : DbMigration
     {
         public override void Up()
         {
