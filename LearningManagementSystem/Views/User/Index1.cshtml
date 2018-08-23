@@ -1,14 +1,14 @@
-﻿@model IEnumerable<LearningManagementSystem.Models.ApplicationUser>
+﻿@model IEnumerable<LearningManagementSystem.Models.TeacherViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Teachers List";
 }
 
-<h2>Students List</h2>
+<h2>Teachers List</h2>
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 <table class="table">
     <tr>
 
@@ -18,9 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.LastName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Course)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
@@ -37,9 +37,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Course.Name)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>

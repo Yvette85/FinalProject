@@ -43,11 +43,18 @@ namespace LearningManagementSystem.Controllers
         public ActionResult Create(int? id)
         {
             var Co = db.Courses.Where(c => c.Id == id).ToList();
-            
+            var c2 = db.Courses.Single(x => x.Id == id);
             ViewBag.CourseId = new SelectList(Co, "Id", "Name");
-            
+
+            Module m = new Module()
+            {
+                Start_Date = c2.StartDate,
+                End_Date = DateTime.Now
+            };
+
+
             //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
-            return View();
+            return View(m);
 
 
             //var ViewModel = ModuleFormViewModel

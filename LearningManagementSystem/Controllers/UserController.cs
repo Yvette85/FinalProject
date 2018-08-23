@@ -40,8 +40,55 @@ namespace LearningManagementSystem.Controllers
 
             }
 
-            return View(context.Users.ToList());
+            return View(context.Users.Where(d => d.CourseId != null));
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public ActionResult Index1()
+        {
+           
+            var abc = context.Users.Where(t => t.CourseId == null);
+           
+            List<TeacherViewModel> teacherViewModel = new List<TeacherViewModel>();
+           
+
+            foreach (var ab in abc)
+            {
+
+
+
+                teacherViewModel.Add(new TeacherViewModel()
+
+                {
+                    FirstName = ab.FirstName,
+                    LastName = ab.LastName,
+                    // CourseId = s.CourseId,
+                    Email = ab.Email
+
+                });
+               
+
+            }
+            return View(teacherViewModel);
+
+
+
+        }
+
+
 
 
 
@@ -162,9 +209,114 @@ namespace LearningManagementSystem.Controllers
 
 
 
+        //For disappear course
 
 
-        public ActionResult Edit(string id)
+        [Authorize(Roles = "Teacher")]
+        public ActionResult Register1()
+        {
+
+            // ApplicationDbContext context = new ApplicationDbContext();
+
+            var viewModel = new RegisterViewModel();
+
+
+            viewModel.Roles = context.Roles.ToList();
+            viewModel.Courses = context.Courses.ToList();
+
+            return View(viewModel);
+        }
+
+
+        [HttpPost]
+        public ActionResult Register1(RegisterViewModel model)
+        {
+            var userStore = new UserStore<ApplicationUser>(context);
+
+
+            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
+
+
+
+
+            if (ModelState.IsValid)
+            {
+
+               // var courses = context.Courses.ToList();
+
+                var user = new ApplicationUser
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                  //  CourseId = Convert.ToInt32(model.CourseId)
+                };
+
+
+
+                var identityResult = userManager.Create(user, model.Password);
+
+                if (identityResult.Succeeded)
+                {
+                  
+                    var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+
+                    var User = userManager.FindByName(model.Email);
+                    //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
+                    userManager.AddToRole(User.Id, Role.Name);
+
+                    //context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
+
+
+
+
+                    //context.Users.Add(user);
+                    //context.SaveChanges();
+
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+
+
+
+
+
+
+                ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
+
+
+            }
+
+            //model.Courses = context.Courses.ToList();
+
+            model.Roles = context.Roles.ToList();
+
+            return View(model);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            public ActionResult Edit(string id)
         {
 
 
