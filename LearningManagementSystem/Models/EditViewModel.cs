@@ -19,9 +19,7 @@ namespace LearningManagementSystem.Models.ViewModels
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-        }
-
-       
+        }       
 
         public string Id { get; set; }
         public string  FirstName { get; set; }

@@ -42,21 +42,6 @@ namespace LearningManagementSystem.Controllers
 
             return View(context.Users.Where(d => d.CourseId != null));
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public ActionResult Index1()
         {
            
@@ -67,9 +52,6 @@ namespace LearningManagementSystem.Controllers
 
             foreach (var ab in abc)
             {
-
-
-
                 teacherViewModel.Add(new TeacherViewModel()
 
                 {
@@ -84,12 +66,7 @@ namespace LearningManagementSystem.Controllers
             }
             return View(teacherViewModel);
 
-
-
         }
-
-
-
 
 
         // GET: User
@@ -108,10 +85,7 @@ namespace LearningManagementSystem.Controllers
 
             return View(viewModel);
         }
-
-
-
-
+        
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
         {
@@ -119,10 +93,7 @@ namespace LearningManagementSystem.Controllers
 
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
-
-
-
-
+            
             if (ModelState.IsValid)
             {
 
@@ -137,66 +108,26 @@ namespace LearningManagementSystem.Controllers
                     CourseId = Convert.ToInt32(model.CourseId)
                 };
 
-
-
+                
                 var identityResult = userManager.Create(user, model.Password);
 
-                //(new IdentityUser (model.Email), model.Password);
-
-
-
-
-
-
+               
                 if (identityResult.Succeeded)
                 {
-                    //userManager.AddToRole(user.Id, "Student");
-
-
-                    //var roleStore = new RoleStore<IdentityRole>(context);
-                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
-
-
-
-                    //var roleNames = new[] { "Teacher", "Student" };
-                    //foreach (var roleName in roleNames)
-                    //{
-                    //    if (context.Roles.Any(r => r.Name == roleName)) continue;
-
-                    //    var role = new IdentityRole { Name = roleName };
-                    //    var result = roleManager.Create(role);
-                    //    if (!result.Succeeded)
-                    //    {
-                    //        throw new Exception(string.Join("\n", result.Errors));
-                    //    }
-                    //}
+                   
                     var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
 
                     var User = userManager.FindByName(model.Email);
-                    //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
                     userManager.AddToRole(User.Id, Role.Name);
-
-                    //context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
-
-
-
-
-                    //context.Users.Add(user);
-                    //context.SaveChanges();
+                                                      
 
 
                     return RedirectToAction("Index", "Home");
                 }
-
-
-
-
-
-
+                                            
 
                 ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
-
-
+                
             }
 
             model.Courses = context.Courses.ToList();
@@ -206,17 +137,10 @@ namespace LearningManagementSystem.Controllers
             return View(model);
 
         }
-
-
-
-        //For disappear course
-
-
+        
         [Authorize(Roles = "Teacher")]
         public ActionResult Register1()
         {
-
-            // ApplicationDbContext context = new ApplicationDbContext();
 
             var viewModel = new RegisterViewModel();
 
@@ -226,8 +150,7 @@ namespace LearningManagementSystem.Controllers
 
             return View(viewModel);
         }
-
-
+        
         [HttpPost]
         public ActionResult Register1(RegisterViewModel model)
         {
@@ -236,13 +159,8 @@ namespace LearningManagementSystem.Controllers
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(userStore);
 
-
-
-
             if (ModelState.IsValid)
             {
-
-               // var courses = context.Courses.ToList();
 
                 var user = new ApplicationUser
                 {
@@ -250,10 +168,8 @@ namespace LearningManagementSystem.Controllers
                     UserName = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                  //  CourseId = Convert.ToInt32(model.CourseId)
+                 
                 };
-
-
 
                 var identityResult = userManager.Create(user, model.Password);
 
@@ -263,62 +179,23 @@ namespace LearningManagementSystem.Controllers
                     var Role = context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
 
                     var User = userManager.FindByName(model.Email);
-                    //userManager.AddToRole(User.Id, context.Roles.FirstOrDefault(x => x.Id == model.RoleId).Name);
                     userManager.AddToRole(User.Id, Role.Name);
-
-                    //context.Roles.FirstOrDefault(x => x.Id == model.RoleId);
-
-
-
-
-                    //context.Users.Add(user);
-                    //context.SaveChanges();
-
 
                     return RedirectToAction("Index", "Home");
                 }
 
 
-
-
-
-
-
                 ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
 
-
             }
-
-            //model.Courses = context.Courses.ToList();
-
+                     
             model.Roles = context.Roles.ToList();
 
             return View(model);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
             public ActionResult Edit(string id)
         {
-
 
             if (id == null)
             {
@@ -334,12 +211,8 @@ namespace LearningManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-
-
             return View(ev);
         }
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -352,10 +225,6 @@ namespace LearningManagementSystem.Controllers
                 uv.FirstName = editv.FirstName;
                 uv.LastName = editv.LastName;
                 uv.Email = editv.Email;
-
-
-
-                //context.Entry(editv).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

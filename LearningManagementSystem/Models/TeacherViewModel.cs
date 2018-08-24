@@ -7,8 +7,6 @@ namespace LearningManagementSystem.Models
 {
     public class TeacherViewModel
     {
-
-
         public ApplicationUser u;
 
         public TeacherViewModel()
@@ -21,15 +19,8 @@ namespace LearningManagementSystem.Models
             FirstName = u.FirstName;
             LastName = u.LastName;
             Email = u.Email;
-         //   CourseName = Convert.ToString(u.CourseId);
-
-            //public List<ApplicationUser> applicationUsers { get; set; }
+         
         }
-
-
-
-
-
 
         public string Id { get; set; }
         public string FirstName { get; set; }

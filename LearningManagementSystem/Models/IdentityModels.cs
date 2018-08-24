@@ -16,10 +16,8 @@ namespace LearningManagementSystem.Models
         public string LastName { get; set; }
         [Display(Name ="Course Name")]
         public virtual Course Course { get; set; }
-        public int? CourseId { get; set; }
+        public int? CourseId { get; set; }       
         
-
-
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

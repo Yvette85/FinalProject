@@ -44,8 +44,7 @@ namespace LearningManagementSystem.Controllers
 
             var dida = db.Modules.Where(d => d.ModuleId == id).ToList();
             ViewBag.ModuleId = new SelectList(dida, "ModuleId", "Name");
-                        
-            //ViewBag.ModuleId = new SelectList(db.Modules, "ModuleId", "Name");
+            
             return View();
         }
 

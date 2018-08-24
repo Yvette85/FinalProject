@@ -50,19 +50,8 @@ namespace LearningManagementSystem.Controllers
             {
                 Start_Date = c2.StartDate,
                 End_Date = DateTime.Now
-            };
-
-
-            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
+            };                      
             return View(m);
-
-
-            //var ViewModel = ModuleFormViewModel
-            //    {
-            //    Courses = db.Courses.ToList();
-
-            //    }
-            //return View(ViewModel)
         }
 
         // POST: Modules/Create

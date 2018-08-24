@@ -4,9 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace LearningManagementSystem.Models.ViewModels
-{
-  
-
+{ 
 
     public class DetailsViewModel
     {
@@ -24,7 +22,6 @@ namespace LearningManagementSystem.Models.ViewModels
             LastName = u.LastName;
             Email = u.Email;
         }
-
 
         public string Id { get; set; }
         public string FirstName { get; set; }
