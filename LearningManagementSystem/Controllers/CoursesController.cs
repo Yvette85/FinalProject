@@ -30,6 +30,7 @@ namespace LearningManagementSystem.Controllers
             List<IndexCourse> course = new List<IndexCourse>();
             foreach (var s in context.Courses.ToList())
             {
+
                course.Add(new IndexCourse()
                 {
                    Id = s.Id,
